@@ -10,8 +10,21 @@
     <!-- Paket -->
     <section class="section section-tight-top" id="paket" aria-label="Paket">
       <div class="container">
+        <div class="finder reveal" data-finder>
+          <div class="finder-head">
+            <h2 class="finder-title"><i class="ph-light ph-sparkle" aria-hidden="true"></i>Hitta rätt paket</h2>
+            <p>Svara på tre frågor så visar vi vilket paket som passar er.</p>
+          </div>
+          <div class="finder-qs">
+            <div class="finder-q"><p id="fq1">Behöver ni företagsmejl eller synas bättre på Google?</p><div class="yn" role="group" aria-labelledby="fq1" data-q="reach"><button type="button" aria-pressed="false" data-v="1">Ja</button><button type="button" aria-pressed="false" data-v="0">Nej</button></div></div>
+            <div class="finder-q"><p id="fq2">Vill ni ta emot bokningar eller ha inloggning för kunder?</p><div class="yn" role="group" aria-labelledby="fq2" data-q="book"><button type="button" aria-pressed="false" data-v="1">Ja</button><button type="button" aria-pressed="false" data-v="0">Nej</button></div></div>
+            <div class="finder-q"><p id="fq3">Vill ni automatisera påminnelser och utskick?</p><div class="yn" role="group" aria-labelledby="fq3" data-q="auto"><button type="button" aria-pressed="false" data-v="1">Ja</button><button type="button" aria-pressed="false" data-v="0">Nej</button></div></div>
+          </div>
+          <p class="finder-result" data-finder-result aria-live="polite" hidden><i class="ph-light ph-check-circle" aria-hidden="true"></i><span>Vi rekommenderar <b data-finder-plan>Start</b>. Paketet är markerat nedan.</span></p>
+        </div>
         <div class="plans">
-          <article class="plan reveal">
+          <article class="plan reveal" data-plan-key="start">
+            <span class="plan-match">Passar er</span>
             <h2 class="plan-name">Start</h2>
             <p class="plan-desc">För er som behöver en modern hemsida som syns.</p>
             <p class="plan-price"><span class="plan-num">495</span> kr/mån</p>
@@ -23,8 +36,9 @@
             </ul>
             <a href="{{p}}kontakt.html?paket=Start" class="btn btn-ghost btn-block">Välj Start</a>
           </article>
-          <article class="plan plan-featured reveal" style="--d:100ms">
+          <article class="plan plan-featured reveal" style="--d:100ms" data-plan-key="foretag">
             <span class="plan-flag">Populärast</span>
+            <span class="plan-match">Passar er</span>
             <h2 class="plan-name">Företag</h2>
             <p class="plan-desc">För er som vill bli hittade och få fler förfrågningar.</p>
             <p class="plan-price"><span class="plan-num">995</span> kr/mån</p>
@@ -36,7 +50,8 @@
             </ul>
             <a href="{{p}}kontakt.html?paket=F%C3%B6retag" class="btn btn-primary btn-block">Välj Företag</a>
           </article>
-          <article class="plan reveal" style="--d:200ms">
+          <article class="plan reveal" style="--d:200ms" data-plan-key="helhet">
+            <span class="plan-match">Passar er</span>
             <h2 class="plan-name">Helhet</h2>
             <p class="plan-desc">För er som vill automatisera och lämna allt digitalt till oss.</p>
             <p class="plan-price"><span class="plan-num">1&nbsp;795</span> kr/mån</p>

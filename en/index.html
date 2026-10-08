@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../assets/icons/phosphor-light.css">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/v3.css">
   <script>
     (function () {
       var d = document.documentElement; d.classList.add('js');
@@ -173,9 +174,19 @@
           <p class="lead">Website with one agency, domain with another, email with a third. We bring it all together under one agreement and one contact person.</p>
         </header>
 
+        <div class="merge reveal" data-merge data-state="before">
+          <div class="merge-bar">
+            <div class="merge-toggle" role="group" aria-label="Compare">
+              <span class="merge-thumb" aria-hidden="true"></span>
+              <button type="button" aria-pressed="true" data-merge-btn="before">Today</button>
+              <button type="button" aria-pressed="false" data-merge-btn="after">With Landén Media</button>
+            </div>
+            <p class="merge-counter" aria-live="polite"><span><b data-merge-count>6</b> <span data-plural="invoice|invoices">invoices</span></span><span><b data-merge-count>6</b> <span data-plural="contact|contacts">contacts</span></span></p>
+          </div>
         <div class="compare">
           <div class="panel panel-before reveal">
             <h3 class="panel-title">What it often looks like today</h3>
+            <p class="merge-done" aria-hidden="true"><span class="merge-big">6&nbsp;→&nbsp;1</span><span>Six suppliers became one.</span></p>
             <ul class="vendor-grid">
               <li class="vendor"><span class="vendor-who">Web agency</span><span class="vendor-what">Website</span><span class="vendor-bill"><i class="ph-light ph-receipt" aria-hidden="true"></i>Separate invoice</span></li>
               <li class="vendor"><span class="vendor-who">Domain registrar</span><span class="vendor-what">Domain and DNS</span><span class="vendor-bill"><i class="ph-light ph-receipt" aria-hidden="true"></i>Separate invoice</span></li>
@@ -204,6 +215,7 @@
               <div><i class="ph-light ph-receipt" aria-hidden="true"></i>One invoice</div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -280,10 +292,48 @@
       </div>
     </section>
 
+    <!-- Kalkylator -->
+    <section class="section" id="kalkylator" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="calc reveal" data-calc>
+          <div class="calc-inputs">
+            <h2 class="title title-sm" id="calc-title">What is the hassle costing you <strong>today?</strong></h2>
+            <p class="lead">Move the sliders to see how much time and admin your digital setup takes today.</p>
+            <div class="range">
+              <label for="c-vendors">Number of digital suppliers <output data-out="vendors">5</output></label>
+              <input type="range" id="c-vendors" min="1" max="10" value="5" data-in="vendors">
+              <p class="range-hint">For example web agency, domain, email, web host and booking system.</p>
+            </div>
+            <div class="range">
+              <label for="c-manual">Hours per week on bookings and reminders <output data-out="manual">3</output></label>
+              <input type="range" id="c-manual" min="0" max="20" value="3" data-in="manual">
+            </div>
+            <div class="range">
+              <label for="c-admin">Hours per month coordinating suppliers <output data-out="admin">2</output></label>
+              <input type="range" id="c-admin" min="0" max="20" value="2" data-in="admin">
+            </div>
+          </div>
+          <div class="calc-result" aria-live="polite">
+            <p class="calc-kicker">Per year, today</p>
+            <div class="calc-stat"><span class="calc-num" data-res="hours">162</span><span class="calc-unit">hours of manual work</span></div>
+            <div class="calc-stat"><span class="calc-num" data-res="days">20</span><span class="calc-unit">full working days</span></div>
+            <div class="calc-stat"><span class="calc-num" data-res="invoices">60</span><span class="calc-unit">invoices to handle</span></div>
+            <p class="calc-after"><i class="ph-light ph-arrow-right" aria-hidden="true"></i><span>With us: <b>one invoice a month</b>, and confirmations and reminders that take care of themselves.</span></p>
+            <a href="contact.html" class="btn btn-primary btn-block">Book a call <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Frequently asked questions -->
     <section class="section" id="fragor" aria-labelledby="faq-title">
       <div class="container faq-wrap">
         <h2 class="title reveal" id="faq-title">Frequently asked questions</h2>
+        <div class="faq-search reveal">
+          <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
+          <label class="sr-only" for="faq-q">Search the questions</label>
+          <input id="faq-q" type="search" placeholder="Search, for example domain or price" autocomplete="off" data-faq-search>
+        </div>
         <div class="faq reveal">
           <details>
             <summary><span>What does it cost?</span><i class="ph-light ph-plus" aria-hidden="true"></i></summary>
@@ -306,6 +356,7 @@
             <div class="faq-body"><p>Yes. We handle cameras, sound, graphics and streaming to your website or social media. Live streaming is quoted per event. <a href="live-streaming.html">Read more about live streaming</a>.</p></div>
           </details>
         </div>
+        <p class="faq-empty" data-faq-empty hidden>No question matches that. <a href="contact.html">Ask us directly</a>.</p>
       </div>
     </section>
 
@@ -372,5 +423,6 @@
   </div>
 
   <script src="../js/main.js" defer></script>
+  <script src="../js/v3.js" defer></script>
 </body>
 </html>

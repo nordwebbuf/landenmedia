@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../assets/icons/phosphor-light.css">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/v3.css">
   <script>
     (function () {
       var d = document.documentElement; d.classList.add('js');
@@ -168,6 +169,53 @@
       </div>
     </section>
 
+    <!-- Se hur ni syns -->
+    <section class="section section-tight-top" id="synas" aria-labelledby="preview-title">
+      <div class="container preview-grid">
+        <div class="preview-copy reveal">
+          <h2 class="title title-sm" id="preview-title">See how you <strong>could look online.</strong></h2>
+          <p class="lead">Type your business name to see how your domain, email address and a Google result could look.</p>
+          <div class="preview-form">
+            <div class="field">
+              <label for="p-name">Business name</label>
+              <input id="p-name" type="text" value="Your Business" maxlength="40" autocomplete="off" data-pv-in="name">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="p-type">Industry</label>
+                <input id="p-type" type="text" value="Hair salon" maxlength="30" autocomplete="off" data-pv-in="type">
+              </div>
+              <div class="field">
+                <label for="p-city">Town</label>
+                <input id="p-city" type="text" value="Boden" maxlength="30" autocomplete="off" data-pv-in="city">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-out reveal" style="--d:120ms">
+          <div class="pv-card">
+            <p class="pv-label">Domain and email</p>
+            <p class="pv-line"><i class="ph-light ph-globe" aria-hidden="true"></i><span data-pv="domain">yourbusiness.com</span></p>
+            <p class="pv-line"><i class="ph-light ph-envelope-simple" aria-hidden="true"></i><span>hej@<span data-pv="domain">yourbusiness.com</span></span></p>
+          </div>
+          <div class="pv-card">
+            <p class="pv-label">A Google result</p>
+            <div class="serp">
+              <div class="serp-site"><span class="serp-fav" data-pv="initial">E</span><span><span class="serp-name" data-pv="name">Your Business</span><span class="serp-url">https://<span data-pv="domain">yourbusiness.com</span></span></span></div>
+              <p class="serp-title"><span data-pv="name">Your Business</span> | <span data-pv="type">Hair salon</span> in <span data-pv="city">Boden</span></p>
+              <p class="serp-desc"><span data-pv="type">Hair salon</span> in <span data-pv="city">Boden</span>. Book directly on the website, see opening hours and find us.</p>
+            </div>
+          </div>
+          <div class="pv-card pv-gbp">
+            <p class="pv-label">Google Business Profile</p>
+            <p class="gbp-name" data-pv="name">Your Business</p>
+            <p class="gbp-meta"><span data-pv="type">Hair salon</span> in <span data-pv="city">Boden</span></p>
+            <div class="gbp-actions"><span><i class="ph-light ph-globe" aria-hidden="true"></i>Website</span><span><i class="ph-light ph-navigation-arrow" aria-hidden="true"></i>Directions</span><span><i class="ph-light ph-phone" aria-hidden="true"></i>Call</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Automatisering -->
     <section class="section section-band" id="automatisering" aria-labelledby="auto-title">
       <div class="container">
@@ -175,6 +223,28 @@
           <h2 class="title" id="auto-title">Less manual work. <strong>Nothing forgotten.</strong></h2>
           <p class="lead">When a customer books through the website, the system takes care of the rest. Everything is saved in the customer register and the right message goes out at the right time.</p>
         </header>
+
+        <div class="demo reveal" data-demo>
+          <div class="demo-widget">
+            <p class="demo-head"><i class="ph-light ph-calendar-blank" aria-hidden="true"></i>Try it: book a time</p>
+            <p class="demo-label" id="demo-service">Service</p>
+            <div class="demo-opts" role="group" aria-labelledby="demo-service">
+              <button type="button" aria-pressed="true">Consultation</button><button type="button" aria-pressed="false">Visit</button><button type="button" aria-pressed="false">Follow-up</button>
+            </div>
+            <p class="demo-label" id="demo-time">Time tomorrow</p>
+            <div class="demo-opts" role="group" aria-labelledby="demo-time">
+              <button type="button" aria-pressed="false">09:00</button><button type="button" aria-pressed="true">13:30</button><button type="button" aria-pressed="false">15:00</button>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" data-demo-book>Book <i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-ghost btn-block" data-demo-reset hidden>Book again</button>
+          </div>
+          <div class="demo-log-wrap">
+            <p class="demo-label">What happens automatically</p>
+            <ol class="demo-log" data-demo-log aria-live="polite"></ol>
+            <p class="demo-empty" data-demo-empty>Pick a service and time and press Book.</p>
+            <p class="demo-hint">This is a demo. Nothing is sent.</p>
+          </div>
+        </div>
 
         <ol class="flow">
           <li class="flow-step reveal" style="--d:0ms">
@@ -210,10 +280,15 @@
     <section class="section" id="rapport" aria-labelledby="rapport-title">
       <div class="container report-grid">
         <div class="report reveal" aria-label="Example monthly report">
+          <div class="report-tabs" role="group" aria-label="Choose month">
+            <button type="button" aria-pressed="false" data-month="jul">July</button>
+            <button type="button" aria-pressed="false" data-month="aug">August</button>
+            <button type="button" aria-pressed="true" data-month="sep">September</button>
+          </div>
           <div class="report-head">
             <div>
               <p class="report-kicker">Monthly report</p>
-              <p class="report-month">September 2026</p>
+              <p class="report-month" data-report-month>September 2026</p>
             </div>
             <span class="badge">Example</span>
           </div>
@@ -221,15 +296,15 @@
           <dl class="kpis">
             <div class="kpi">
               <dt>Visits</dt>
-              <dd><span class="kpi-num" data-count="1284">1,284</span><span class="kpi-delta"><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i>12%</span></dd>
+              <dd><span class="kpi-num" data-kpi="visits" data-count="1284">1,284</span><span class="kpi-delta"><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i><span data-kpi-delta="visits">12%</span></span></dd>
             </div>
             <div class="kpi">
               <dt>Enquiries</dt>
-              <dd><span class="kpi-num" data-count="37">37</span><span class="kpi-delta"><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i>+6</span></dd>
+              <dd><span class="kpi-num" data-kpi="inq" data-count="37">37</span><span class="kpi-delta"><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i><span data-kpi-delta="inq">+6</span></span></dd>
             </div>
             <div class="kpi">
               <dt>Bookings</dt>
-              <dd><span class="kpi-num" data-count="52">52</span><span class="kpi-delta"><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i>+9</span></dd>
+              <dd><span class="kpi-num" data-kpi="book" data-count="52">52</span><span class="kpi-delta"><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i><span data-kpi-delta="book">+9</span></span></dd>
             </div>
           </dl>
 
@@ -371,5 +446,6 @@
   </div>
 
   <script src="../js/main.js" defer></script>
+  <script src="../js/v3.js" defer></script>
 </body>
 </html>

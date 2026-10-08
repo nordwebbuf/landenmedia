@@ -14,8 +14,9 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n import T as T1, ALLOWED, SITE  # noqa: E402
 from i18n_pages import T2  # noqa: E402
+from i18n_v3 import T3  # noqa: E402
 
-T = T1 + T2
+T = T1 + T3 + T2
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -126,6 +127,7 @@ def head(key, lang, p):
   <link rel="stylesheet" href="{p}css/fonts.css">
   <link rel="stylesheet" href="{p}assets/icons/phosphor-light.css">
   <link rel="stylesheet" href="{p}css/styles.css">
+  <link rel="stylesheet" href="{p}css/v3.css">
   <script>
     (function () {{
       var d = document.documentElement; d.classList.add('js');
@@ -263,6 +265,7 @@ def chrome(key, lang, p, body):
   </footer>
 {mobile_cta}
   <script src="{p}js/main.js" defer></script>
+  <script src="{p}js/v3.js" defer></script>
 </body>
 </html>
 '''

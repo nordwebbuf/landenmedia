@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../assets/icons/phosphor-light.css">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/v3.css">
   <script>
     (function () {
       var d = document.documentElement; d.classList.add('js');
@@ -109,8 +110,21 @@
     <!-- Paket -->
     <section class="section section-tight-top" id="paket" aria-label="Packages">
       <div class="container">
+        <div class="finder reveal" data-finder>
+          <div class="finder-head">
+            <h2 class="finder-title"><i class="ph-light ph-sparkle" aria-hidden="true"></i>Find the right package</h2>
+            <p>Answer three questions and we will show which package suits you.</p>
+          </div>
+          <div class="finder-qs">
+            <div class="finder-q"><p id="fq1">Do you need business email or better visibility on Google?</p><div class="yn" role="group" aria-labelledby="fq1" data-q="reach"><button type="button" aria-pressed="false" data-v="1">Yes</button><button type="button" aria-pressed="false" data-v="0">No</button></div></div>
+            <div class="finder-q"><p id="fq2">Do you want to take bookings or have a customer login?</p><div class="yn" role="group" aria-labelledby="fq2" data-q="book"><button type="button" aria-pressed="false" data-v="1">Yes</button><button type="button" aria-pressed="false" data-v="0">No</button></div></div>
+            <div class="finder-q"><p id="fq3">Do you want to automate reminders and mailings?</p><div class="yn" role="group" aria-labelledby="fq3" data-q="auto"><button type="button" aria-pressed="false" data-v="1">Yes</button><button type="button" aria-pressed="false" data-v="0">No</button></div></div>
+          </div>
+          <p class="finder-result" data-finder-result aria-live="polite" hidden><i class="ph-light ph-check-circle" aria-hidden="true"></i><span>We recommend <b data-finder-plan>Start</b>. The package is highlighted below.</span></p>
+        </div>
         <div class="plans">
-          <article class="plan reveal">
+          <article class="plan reveal" data-plan-key="start">
+            <span class="plan-match">Right for you</span>
             <h2 class="plan-name">Start</h2>
             <p class="plan-desc">For businesses that need a modern website that gets seen.</p>
             <p class="plan-price"><span class="plan-num">495</span> SEK/month</p>
@@ -122,8 +136,9 @@
             </ul>
             <a href="contact.html?package=Start" class="btn btn-ghost btn-block">Choose Start</a>
           </article>
-          <article class="plan plan-featured reveal" style="--d:100ms">
+          <article class="plan plan-featured reveal" style="--d:100ms" data-plan-key="foretag">
             <span class="plan-flag">Most popular</span>
+            <span class="plan-match">Right for you</span>
             <h2 class="plan-name">Business</h2>
             <p class="plan-desc">For businesses that want to be found and get more enquiries.</p>
             <p class="plan-price"><span class="plan-num">995</span> SEK/month</p>
@@ -135,7 +150,8 @@
             </ul>
             <a href="contact.html?package=Business" class="btn btn-primary btn-block">Choose Business</a>
           </article>
-          <article class="plan reveal" style="--d:200ms">
+          <article class="plan reveal" style="--d:200ms" data-plan-key="helhet">
+            <span class="plan-match">Right for you</span>
             <h2 class="plan-name">Complete</h2>
             <p class="plan-desc">For businesses that want to automate and leave everything digital to us.</p>
             <p class="plan-price"><span class="plan-num">1,795</span> SEK/month</p>
@@ -259,5 +275,6 @@
   </div>
 
   <script src="../js/main.js" defer></script>
+  <script src="../js/v3.js" defer></script>
 </body>
 </html>
