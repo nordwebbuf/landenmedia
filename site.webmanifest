@@ -1,0 +1,12 @@
+{
+  "name": "Landén Media",
+  "short_name": "Landén Media",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F3F4F1",
+  "theme_color": "#F3F4F1",
+  "icons": [
+    { "src": "/assets/favicon.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
