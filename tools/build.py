@@ -126,6 +126,7 @@ def head(key, lang, p):
   <link rel="stylesheet" href="{p}css/fonts.css">
   <link rel="stylesheet" href="{p}assets/icons/phosphor-light.css">
   <link rel="stylesheet" href="{p}css/styles.css">
+  <link rel="stylesheet" href="{p}css/wow.css">
   <script>
     (function () {{
       var d = document.documentElement; d.classList.add('js');
@@ -174,8 +175,9 @@ def chrome(key, lang, p, body):
     <a href="{p}kontakt.html" class="btn btn-primary btn-block" tabindex="-1">Boka ett samtal <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
   </div>
 '''
+    body_cls = "" if key in ("integritetspolicy", "404") else ' class="has-hero"'
     return f'''
-<body>
+<body{body_cls}>
   <a class="skip-link" href="#main">Hoppa till innehållet</a>
   <div class="top-sentinel" aria-hidden="true"></div>
 
@@ -263,6 +265,7 @@ def chrome(key, lang, p, body):
   </footer>
 {mobile_cta}
   <script src="{p}js/main.js" defer></script>
+  <script src="{p}js/wow.js" defer></script>
 </body>
 </html>
 '''

@@ -112,6 +112,17 @@ T2 = [
     ("Vi bokar ett kort samtal och går igenom vad ni har idag.", "We book a short call and go through what you have today."),
     ("Ni får ett förslag", "You get a proposal"),
     ("Med vad som ingår, vad det kostar och när det kan vara klart.", "With what is included, what it costs and when it can be ready."),
+    # wow version
+    ("<b>Ny bokning</b><small>Idag 14:00, via hemsidan</small>", "<b>New booking</b><small>Today 2 pm, via the website</small>"),
+    ("<b>Påminnelse skickad</b><small>Automatiskt, dagen innan</small>", "<b>Reminder sent</b><small>Automatically, the day before</small>"),
+    ("Besök denna månad", "Visits this month"),
+    ("+12&nbsp;%", "+12%"),
+    ('aria-label="Jämför"', 'aria-label="Compare"'),
+    ('data-merge-btn="before">Idag<', 'data-merge-btn="before">Today<'),
+    ('data-merge-btn="after">Med Landén Media<', 'data-merge-btn="after">With Landén Media<'),
+    ('<span data-plural="faktura|fakturor">fakturor</span>', '<span data-plural="invoice|invoices">invoices</span>'),
+    ('<span data-plural="kontakt|kontakter">kontakter</span>', '<span data-plural="contact|contacts">contacts</span>'),
+    ("Sex leverantörer blev en.", "Six suppliers became one."),
     # shared labels (keep last: short, generic)
     ("Webbtjänster", "Web services"),
     ("Livesändning", "Live streaming"),

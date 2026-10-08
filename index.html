@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="assets/icons/phosphor-light.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/wow.css">
   <script>
     (function () {
       var d = document.documentElement; d.classList.add('js');
@@ -61,7 +62,7 @@
   }
   </script>
 </head>
-<body>
+<body class="has-hero">
   <a class="skip-link" href="#main">Hoppa till innehållet</a>
   <div class="top-sentinel" aria-hidden="true"></div>
 
@@ -130,6 +131,7 @@
             </ul>
           </div>
         </div>
+        <div class="hero-visual" data-scene>
         <figure class="hero-media" data-parallax>
           <img
             src="https://picsum.photos/id/1/960/1200"
@@ -139,6 +141,20 @@
             alt="Person som arbetar vid en bärbar dator på ett träbord"
             fetchpriority="high">
         </figure>
+          <div class="float-card fc-1" data-depth="18" aria-hidden="true">
+            <span class="fc-icon fc-green"><i class="ph-light ph-calendar-check"></i></span>
+            <span><b>Ny bokning</b><small>Idag 14:00, via hemsidan</small></span>
+          </div>
+          <div class="float-card fc-2" data-depth="30" aria-hidden="true">
+            <span class="fc-icon fc-violet"><i class="ph-light ph-bell-simple"></i></span>
+            <span><b>Påminnelse skickad</b><small>Automatiskt, dagen innan</small></span>
+          </div>
+          <div class="float-card fc-3" data-depth="24" aria-hidden="true">
+            <span class="fc-kicker">Besök denna månad</span>
+            <span class="fc-num">+12&nbsp;%</span>
+            <span class="fc-bars"><i style="--h:40%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:70%"></i><i style="--h:82%"></i><i style="--h:100%"></i></span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -173,9 +189,19 @@
           <p class="lead">Hemsida hos en byrå, domän hos en annan, mejl hos en tredje. Vi samlar allt under ett avtal och en kontaktperson.</p>
         </header>
 
+        <div class="merge reveal" data-merge data-state="before">
+          <div class="merge-bar">
+            <div class="merge-toggle" role="group" aria-label="Jämför">
+              <span class="merge-thumb" aria-hidden="true"></span>
+              <button type="button" aria-pressed="true" data-merge-btn="before">Idag</button>
+              <button type="button" aria-pressed="false" data-merge-btn="after">Med Landén Media</button>
+            </div>
+            <p class="merge-counter" aria-live="polite"><span><b data-merge-count>6</b> <span data-plural="faktura|fakturor">fakturor</span></span><span><b data-merge-count>6</b> <span data-plural="kontakt|kontakter">kontakter</span></span></p>
+          </div>
         <div class="compare">
           <div class="panel panel-before reveal">
             <h3 class="panel-title">Så ser det ofta ut idag</h3>
+            <p class="merge-done" aria-hidden="true"><span class="merge-big">6&nbsp;→&nbsp;1</span><span>Sex leverantörer blev en.</span></p>
             <ul class="vendor-grid">
               <li class="vendor"><span class="vendor-who">Webbyrå</span><span class="vendor-what">Hemsida</span><span class="vendor-bill"><i class="ph-light ph-receipt" aria-hidden="true"></i>Egen faktura</span></li>
               <li class="vendor"><span class="vendor-who">Domänleverantör</span><span class="vendor-what">Domän och DNS</span><span class="vendor-bill"><i class="ph-light ph-receipt" aria-hidden="true"></i>Egen faktura</span></li>
@@ -204,6 +230,7 @@
               <div><i class="ph-light ph-receipt" aria-hidden="true"></i>En faktura</div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -372,5 +399,6 @@
   </div>
 
   <script src="js/main.js" defer></script>
+  <script src="js/wow.js" defer></script>
 </body>
 </html>
