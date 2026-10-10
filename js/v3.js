@@ -159,7 +159,22 @@
     const panel = picker.querySelector('.bg-panel');
     const list = picker.querySelector('[data-bg-options]');
     const pic = (id, w, h) => `https://picsum.photos/id/${id}/${w}/${h}`;
+    // Slideshow of Nordic landscapes. Photos from Wikimedia Commons, credited as their licences require.
+    const ownSrc = document.querySelector('script[src*="js/v3.js"]');
+    const nordenDir = new URL('../assets/hero/norden/', ownSrc ? ownSrc.src : location.href).href;
+    const SLIDES = [
+      { file: 'geiranger', sv: 'Geirangerfjorden, Norge', en: 'Geirangerfjord, Norway', pos: '50% 60%', by: 'Ximonic (Simo Räsänen)', lic: 'CC BY-SA 3.0', src: 'Geirangerfjord_from_%C3%98rnesvingen,_2013_June.jpg' },
+      { file: 'lapporten', sv: 'Lapporten vid Torneträsk, Sverige', en: 'Lapporten by Torneträsk, Sweden', pos: '50% 45%', by: 'Ximonic (Simo Räsänen)', lic: 'CC BY-SA 4.0', src: 'Lapporten_over_Tornetr%C3%A4sk,_Norrbotten,_Sweden,_2015_April.jpg' },
+      { file: 'kirkjufell', sv: 'Kirkjufell, Island', en: 'Kirkjufell, Iceland', pos: '50% 40%', by: 'Jakub Hałun', lic: 'CC BY 4.0', src: 'Kirkjufell,_Iceland,_20240714_1631_0713.jpg' },
+      { file: 'reine', sv: 'Reine, Lofoten, Norge', en: 'Reine, Lofoten, Norway', pos: '50% 60%', by: 'Jörg Hempel', lic: 'CC BY-SA 2.0 DE', src: 'Reine_i_Lofoten_LC0148.jpg' },
+      { file: 'sarek', sv: 'Sareks nationalpark, Sverige', en: 'Sarek National Park, Sweden', pos: '50% 45%', by: 'Trougnouf (Benoit Brummer)', lic: 'CC BY 4.0', src: 'Suobbattj%C3%A5hk%C3%A5_stream_and_the_Tjakkeli_mountain_during_golden_hour,_Sarek_National_Park_(DSCF2833).jpg' },
+      { file: 'pallas', sv: 'Pallastunturi, Lappland, Finland', en: 'Pallastunturi, Lapland, Finland', pos: '50% 50%', by: 'Ximonic (Simo Räsänen)', lic: 'CC BY-SA 4.0', src: 'Pallastunturi_and_Hanhij%C3%A4rvi_in_Muonio,_Lapland,_Finland,_2023_September.jpg' },
+      { file: 'senja', sv: 'Segla, Senja, Norge', en: 'Segla, Senja, Norway', pos: '50% 50%', by: 'Ximonic (Simo Räsänen)', lic: 'CC BY-SA 4.0', src: 'View_from_a_ridge_between_Segla_and_Hesten,_Senja,_Norway,_2014_August.jpg' },
+      { file: 'skogafoss', sv: 'Skógafoss, Island', en: 'Skógafoss, Iceland', pos: '65% 50%', by: 'Martin Falbisoner', lic: 'CC BY-SA 4.0', src: 'Sk%C3%B3gafoss_July_2014.JPG' },
+      { file: 'abisko', sv: 'Norrsken i Abisko, Sverige', en: 'Northern lights in Abisko, Sweden', pos: '50% 40%', by: 'Pavel.shyshkouski', lic: 'CC BY-SA 4.0', src: 'Aurora_in_Abisko_near_Tornetr%C3%A4sk.jpg' },
+    ];
     const BGS = [
+      { key: 'norden', sv: 'Bildspel: Nordens landskap', en: 'Slideshow: Nordic landscapes', slides: true },
       { key: 'forest', sv: 'Granskog i skymning', en: 'Pine forest at dusk', id: 648, pos: '50% 55%' },
       { key: 'mountains', sv: 'Snöfjäll i blå timmen', en: 'Snowy peaks, blue hour', id: 684, pos: '50% 40%' },
       { key: 'stars', sv: 'Stjärnhimmel', en: 'Starry sky', id: 537, pos: '50% 50%' },
@@ -192,15 +207,87 @@
       { key: 'navy', sv: 'Marinblå toning', en: 'Navy gradient', css: 'radial-gradient(90% 70% at 85% 110%, #1B3B96 0%, #0D1D45 45%, #02070F 100%)' },
       { key: 'aurora', sv: 'Norrsken', en: 'Northern lights', css: 'radial-gradient(40% 40% at 30% 35%, rgb(46 220 155 / .7), transparent 70%), radial-gradient(40% 40% at 70% 30%, rgb(80 110 255 / .6), transparent 70%), #040A18' },
     ];
+    // ---- Slideshow: crossfading layers, a caption with photo credit and a pause button ----
+    const show = (() => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const DELAY = 7000;
+      let layers = null, credit = null, idx = 0, timer = null, running = false, paused = reduce, visible = true;
+      const setCredit = (s) => {
+        const place = credit.querySelector('.hero-credit-place');
+        const by = credit.querySelector('.hero-credit-by');
+        place.textContent = en ? s.en : s.sv;
+        by.innerHTML = '';
+        const a = document.createElement('a');
+        a.href = `https://commons.wikimedia.org/wiki/File:${s.src}`;
+        a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = s.by;
+        by.append(en ? 'Photo: ' : 'Foto: ', a, `, ${s.lic}`);
+      };
+      const load = (i) => {
+        const el = layers.children[i];
+        if (!el.getAttribute('src')) el.src = `${nordenDir}${SLIDES[i].file}.jpg`;
+        return el.decode ? el.decode().catch(() => {}) : Promise.resolve();
+      };
+      const go = (i) => {
+        idx = (i + SLIDES.length) % SLIDES.length;
+        load(idx).then(() => {
+          [...layers.children].forEach((el, k) => el.classList.toggle('is-active', k === idx));
+          setCredit(SLIDES[idx]);
+          load((idx + 1) % SLIDES.length); // fetch the next photo in good time
+        });
+      };
+      const tick = () => {
+        clearTimeout(timer);
+        if (running && !paused && visible && !document.hidden) timer = setTimeout(() => { go(idx + 1); tick(); }, DELAY);
+      };
+      const build = () => {
+        layers = document.createElement('div');
+        layers.className = 'hero-slides';
+        SLIDES.forEach((s) => {
+          const el = document.createElement('img');
+          el.alt = ''; el.decoding = 'async';
+          el.style.objectPosition = s.pos;
+          layers.appendChild(el);
+        });
+        img.after(layers);
+        credit = document.createElement('div');
+        credit.className = 'hero-credit';
+        credit.innerHTML = '<button type="button" class="hero-credit-toggle"><i class="ph-light" aria-hidden="true"></i></button><p><span class="hero-credit-place"></span><span class="hero-credit-by"></span></p>';
+        heroPhoto.appendChild(credit);
+        const btn = credit.querySelector('button');
+        const syncBtn = () => {
+          btn.querySelector('i').className = `ph-light ${paused ? 'ph-play' : 'ph-pause'}`;
+          btn.setAttribute('aria-label', paused ? (en ? 'Play slideshow' : 'Spela bildspelet') : (en ? 'Pause slideshow' : 'Pausa bildspelet'));
+        };
+        btn.addEventListener('click', () => { paused = !paused; syncBtn(); tick(); });
+        syncBtn();
+        new IntersectionObserver(([e]) => { visible = e.isIntersecting; tick(); }).observe(heroPhoto);
+        document.addEventListener('visibilitychange', tick);
+      };
+      return {
+        start() {
+          if (!layers) build();
+          running = true;
+          layers.hidden = false; credit.hidden = false;
+          go(idx); tick();
+        },
+        stop() {
+          running = false; clearTimeout(timer);
+          if (layers) { layers.hidden = true; credit.hidden = true; }
+        },
+      };
+    })();
+
     const apply = (bg) => {
       heroPhoto.dataset.bg = bg.key;
+      if (bg.slides) show.start(); else show.stop();
       if (bg.id !== undefined) {
         img.removeAttribute('srcset');
         img.src = pic(bg.id, 2400, 1500);
         img.style.objectPosition = bg.pos;
       }
       list.querySelectorAll('.bg-option').forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.key === bg.key)));
-      try { localStorage.setItem('nm-hero-bg', bg.key); } catch (e) { /* storage unavailable */ }
+      try { localStorage.setItem('nm-hero-bg2', bg.key); } catch (e) { /* storage unavailable */ }
     };
     BGS.forEach((bg) => {
       const b = document.createElement('button');
@@ -210,7 +297,7 @@
       b.setAttribute('aria-pressed', String(heroPhoto.dataset.bg === bg.key));
       const thumb = document.createElement('span');
       thumb.className = 'bg-thumb';
-      thumb.style.backgroundImage = bg.css || `url("${pic(bg.id, 320, 200)}")`;
+      thumb.style.backgroundImage = bg.css || (bg.slides ? `url("${nordenDir}geiranger-thumb.jpg")` : `url("${pic(bg.id, 320, 200)}")`);
       const label = document.createElement('span');
       label.textContent = en ? bg.en : bg.sv;
       b.append(thumb, label);
@@ -222,9 +309,9 @@
     document.addEventListener('click', (e) => { if (!picker.contains(e.target)) setOpen(false); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) { setOpen(false); toggleBtn.focus(); } });
     let saved = null;
-    try { saved = localStorage.getItem('nm-hero-bg'); } catch (e) { /* storage unavailable */ }
-    const initial = BGS.find((b) => b.key === saved);
-    if (initial && initial.key !== heroPhoto.dataset.bg) apply(initial);
+    try { saved = localStorage.getItem('nm-hero-bg2'); } catch (e) { /* storage unavailable */ }
+    const initial = BGS.find((b) => b.key === saved) || BGS.find((b) => b.key === heroPhoto.dataset.bg);
+    if (initial && (initial.key !== heroPhoto.dataset.bg || initial.slides)) apply(initial);
   }
 
   // ---------- 2. Calculator ----------

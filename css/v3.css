@@ -593,6 +593,29 @@
 .bg-option[aria-pressed="true"] .bg-thumb { border-color: #9DB6FF; box-shadow: 0 0 0 3px rgb(157 182 255 / .3); }
 .bg-option[aria-pressed="true"] { color: #fff; }
 
+/* Slideshow: Nordic landscapes, crossfading on top of the static photo */
+.hero-slides { position: absolute; inset: 0; overflow: hidden; }
+.hero-slides img { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s var(--ease); }
+.hero-slides img.is-active { opacity: 1; }
+.hero-photo:not([data-bg="norden"]) .hero-slides { display: none; }
+.hero-credit {
+  position: absolute; left: var(--gutter); bottom: calc(56px + 18px); z-index: 3;
+  display: flex; align-items: center; gap: 12px; max-width: min(360px, 40vw);
+  text-align: left; color: #fff;
+}
+.hero-credit-toggle {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgb(255 255 255 / .28); background: rgb(5 11 28 / .45); color: #fff; font-size: 1.05rem; cursor: pointer;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background-color .25s var(--ease);
+}
+.hero-credit[hidden] { display: none; }
+.hero-credit-toggle:hover { background: rgb(5 11 28 / .75); }
+.hero-credit p { display: flex; flex-direction: column; gap: 2px; min-width: 0; line-height: 1.3; text-shadow: 0 1px 12px rgb(3 8 18 / .6); }
+.hero-credit-place { font-size: .875rem; font-weight: 500; }
+.hero-credit-by { font-size: .6875rem; color: #AEB9CF; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero-credit-by a { color: inherit; text-decoration: underline; text-decoration-color: rgb(174 185 207 / .5); text-underline-offset: 2px; }
+.hero-credit-by a:hover { color: #fff; }
+
 /* Image-free backgrounds */
 .hero-photo[data-bg="navy"] .hero-bg img, .hero-photo[data-bg="aurora"] .hero-bg img { display: none; }
 .hero-photo[data-bg="navy"] .hero-bg { background: radial-gradient(90% 70% at 85% 110%, #1B3B96 0%, #0D1D45 45%, #02070F 100%); }
@@ -628,6 +651,8 @@
   .bg-picker-toggle { width: 40px; padding: 0; justify-content: center; }
   .bg-panel { left: 0; right: auto; }
   .bg-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-credit { left: auto; right: var(--gutter); bottom: calc(32px + 12px); flex-direction: row-reverse; max-width: calc(100% - 2 * var(--gutter) - 52px); }
+  .hero-credit p { text-align: right; align-items: flex-end; }
 }
 
 /* Phones: the guarantee timeline runs vertically */
@@ -646,3 +671,13 @@
 .bg-options::-webkit-scrollbar { width: 6px; }
 .bg-options::-webkit-scrollbar-thumb { background: rgb(255 255 255 / .25); border-radius: 999px; }
 @media (max-width: 640px) { .bg-options { grid-template-columns: repeat(2, minmax(0, 1fr)); max-height: 50vh; } }
+
+/* Tablets and phones: slideshow credit and background picker get their own row below the partner logos */
+@media (max-width: 960px) {
+  .hero-photo { padding-bottom: calc(32px + 76px); }
+  .bg-picker, .hero-credit { bottom: calc(32px + 12px); }
+}
+@media (min-width: 961px) and (max-width: 1120px) {
+  .hero-photo { padding-bottom: calc(56px + 64px); }
+  .bg-picker, .hero-credit { bottom: calc(56px + 12px); }
+}
