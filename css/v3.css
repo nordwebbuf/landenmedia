@@ -581,25 +581,14 @@
    Hero background picker (design tool for choosing a background)
    ===================================================================== */
 
-/* Slideshow: Nordic landscapes, crossfading on top of the static photo */
-.hero-slides { position: absolute; inset: 0; overflow: hidden; }
-.hero-slides img { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s var(--ease); }
-.hero-slides img.is-active { opacity: 1; }
+/* Photo credit for the hero image (required by its CC BY-SA licence) */
 .hero-credit {
   position: absolute; left: var(--gutter); bottom: calc(56px + 18px); z-index: 3;
-  display: flex; align-items: center; gap: 12px; max-width: min(360px, 40vw);
-  text-align: left; color: #fff;
+  display: flex; flex-direction: column; gap: 2px; max-width: min(360px, 40vw);
+  text-align: left; color: #fff; line-height: 1.3; text-shadow: 0 1px 12px rgb(3 8 18 / .6);
 }
-.hero-credit-toggle {
-  width: 40px; height: 40px; flex-shrink: 0; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center;
-  border: 1px solid rgb(255 255 255 / .28); background: rgb(5 11 28 / .45); color: #fff; font-size: 1.05rem; cursor: pointer;
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background-color .25s var(--ease);
-}
-.hero-credit[hidden] { display: none; }
-.hero-credit-toggle:hover { background: rgb(5 11 28 / .75); }
-.hero-credit p { display: flex; flex-direction: column; gap: 2px; min-width: 0; line-height: 1.3; text-shadow: 0 1px 12px rgb(3 8 18 / .6); }
-.hero-credit-place { font-size: .875rem; font-weight: 500; }
-.hero-credit-by { font-size: .6875rem; color: #AEB9CF; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero-credit-place { font-size: .8125rem; font-weight: 500; }
+.hero-credit-by { font-size: .6875rem; color: #AEB9CF; }
 .hero-credit-by a { color: inherit; text-decoration: underline; text-decoration-color: rgb(174 185 207 / .5); text-underline-offset: 2px; }
 .hero-credit-by a:hover { color: #fff; }
 
@@ -615,8 +604,7 @@
   .guarantee-steps b { font-size: .9375rem; }
   .gs-dot { width: 44px; height: 44px; font-size: 1.15rem; }
   .guarantee-steps::before { top: 21px; }
-  .hero-credit { left: auto; right: var(--gutter); bottom: calc(32px + 12px); flex-direction: row-reverse; max-width: calc(100% - 2 * var(--gutter) - 52px); }
-  .hero-credit p { text-align: right; align-items: flex-end; }
+  .hero-credit { max-width: calc(100% - 2 * var(--gutter)); }
 }
 
 /* Phones: the guarantee timeline runs vertically */
