@@ -1,4 +1,4 @@
-// Landén Media v3: interactive features (6 -> 1, calculator, FAQ search,
+// NordenMedia v3: interactive features (6 -> 1, calculator, FAQ search,
 // package finder, booking demo, name preview, report months, live destinations).
 (() => {
   const en = document.documentElement.lang === 'en';

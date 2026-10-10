@@ -7,6 +7,7 @@ by translating it with the table in tools/i18n.py, unless src/en/<page>.html
 exists, in which case that file is used as is. Header, footer and <head> are
 shared and defined here. The script lists any Swedish text left untranslated.
 """
+import json
 import os
 import re
 import sys
@@ -23,41 +24,41 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # key: (sv file, en file, sv title, en title, sv description, en description)
 PAGES = {
     "index": ("index.html", "index.html",
-              "Landén Media | Hemsida, mejl och synlighet hos en partner",
-              "Landén Media | Website, email and visibility from one partner",
-              "Landén Media samlar små och medelstora företags digitala behov hos en partner. Hemsida, domän, företagsmejl, SEO, automatisering, drift och livesändningar.",
-              "Landén Media brings the digital needs of small and medium-sized businesses together with one partner. Website, domain, email, SEO, automation, hosting and live streaming."),
+              "NordenMedia | Hemsida, mejl och synlighet hos en partner",
+              "NordenMedia | Website, email and visibility from one partner",
+              "NordenMedia samlar små och medelstora företags digitala behov hos en partner. Hemsida, domän, företagsmejl, SEO, automatisering, drift och livesändningar.",
+              "NordenMedia brings the digital needs of small and medium-sized businesses together with one partner. Website, domain, email, SEO, automation, hosting and live streaming."),
     "webbtjanster": ("webbtjanster.html", "web-services.html",
-                     "Webbtjänster | Landén Media",
-                     "Web services | Landén Media",
+                     "Webbtjänster | NordenMedia",
+                     "Web services | NordenMedia",
                      "Hemsidor, domän, företagsmejl, SEO, AI-svar, Google-företagsprofil, automatisering och drift. Allt hos en partner.",
                      "Websites, domains, business email, SEO, AI answers, Google Business Profile, automation and hosting. All with one partner."),
     "livesandning": ("livesandning.html", "live-streaming.html",
-                     "Livesändning | Landén Media",
-                     "Live streaming | Landén Media",
+                     "Livesändning | NordenMedia",
+                     "Live streaming | NordenMedia",
                      "Professionella livesändningar av konferenser, föreläsningar och evenemang. Flera kameror, grafik, sändning och inspelning.",
                      "Professional live streaming of conferences, lectures and events. Multiple cameras, graphics, streaming and recording."),
     "priser": ("priser.html", "pricing.html",
-               "Priser | Landén Media",
-               "Pricing | Landén Media",
+               "Priser | NordenMedia",
+               "Pricing | NordenMedia",
                "Tre paket med fast månadspris för hemsida, domän, mejl, synlighet och drift.",
                "Three packages with a fixed monthly price for website, domain, email, visibility and hosting."),
     "om-oss": ("om-oss.html", "about.html",
-               "Om oss | Landén Media",
-               "About us | Landén Media",
-               "Människorna bakom Landén Media, våra samarbetspartners och kunder.",
-               "The people behind Landén Media, our partners and clients."),
+               "Om oss | NordenMedia",
+               "About us | NordenMedia",
+               "Människorna bakom NordenMedia, våra samarbetspartners och kunder.",
+               "The people behind NordenMedia, our partners and clients."),
     "kontakt": ("kontakt.html", "contact.html",
-                "Kontakt | Landén Media",
-                "Contact | Landén Media",
-                "Boka ett samtal med Landén Media. Berätta om ert företag så hör vi av oss.",
-                "Book a call with Landén Media. Tell us about your business and we will be in touch."),
+                "Kontakt | NordenMedia",
+                "Contact | NordenMedia",
+                "Boka ett samtal med NordenMedia. Berätta om ert företag så hör vi av oss.",
+                "Book a call with NordenMedia. Tell us about your business and we will be in touch."),
     "integritetspolicy": ("integritetspolicy.html", "privacy.html",
-                          "Integritetspolicy | Landén Media",
-                          "Privacy policy | Landén Media",
-                          "Så hanterar Landén Media dina personuppgifter.",
-                          "How Landén Media handles your personal data."),
-    "404": ("404.html", None, "Sidan hittades inte | Landén Media", None, "Sidan finns inte.", None),
+                          "Integritetspolicy | NordenMedia",
+                          "Privacy policy | NordenMedia",
+                          "Så hanterar NordenMedia dina personuppgifter.",
+                          "How NordenMedia handles your personal data."),
+    "404": ("404.html", None, "Sidan hittades inte | NordenMedia", None, "Sidan finns inte.", None),
 }
 
 NAV = ["webbtjanster", "livesandning", "priser", "om-oss"]
@@ -112,7 +113,7 @@ def head(key, lang, p):
   <meta name="theme-color" content="#0E1110" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{"sv_SE" if lang == "sv" else "en_GB"}">
-  <meta property="og:site_name" content="Landén Media">
+  <meta property="og:site_name" content="NordenMedia">
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:image" content="{SITE}/assets/og-image.jpg">
@@ -138,11 +139,11 @@ def head(key, lang, p):
   {{
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Landén Media",
+    "name": "NordenMedia",
     "url": "{SITE}/",
-    "logo": "{SITE}/assets/logo.svg",
+    "logo": "{SITE}/assets/nordenmedia.svg",
     "image": "{SITE}/assets/og-image.jpg",
-    "email": "hej@landenmedia.se",
+    "email": "hej@nordenmedia.se",
     "description": "Hemsidor, webbsystem, domän, DNS, företagsmejl, SEO, optimering för AI-svar, Google-företagsprofiler, automatisering, hosting, drift och livesändningar för små och medelstora företag.",
     "areaServed": "SE",
     "knowsLanguage": ["sv", "en"]
@@ -184,7 +185,7 @@ def chrome(key, lang, p, body):
   <header class="site-header" data-header>
     <div class="progress" aria-hidden="true"></div>
     <div class="container header-inner">
-      <a href="{home}" class="brand" aria-label="Landén Media, till startsidan">
+      <a href="{home}" class="brand" aria-label="NordenMedia, till startsidan">
         <span class="logo" aria-hidden="true"></span>
       </a>
 
@@ -237,7 +238,7 @@ def chrome(key, lang, p, body):
             </ul>
           </div>
           <div>
-            <p class="footer-head">Landén Media</p>
+            <p class="footer-head">NordenMedia</p>
             <ul>
               <li><a href="{p}om-oss.html">Om oss</a></li>
               <li><a href="{p}kontakt.html">Kontakt</a></li>
@@ -247,15 +248,15 @@ def chrome(key, lang, p, body):
           <div>
             <p class="footer-head">Kontakt</p>
             <ul>
-              <li><a href="mailto:hej@landenmedia.se">hej@landenmedia.se</a></li>
+              <li><a href="mailto:hej@nordenmedia.se">hej@nordenmedia.se</a></li>
               <li><a href="{p}kontakt.html">Boka ett samtal</a></li>
             </ul>
           </div>
         </nav>
       </div>
-      <span class="logo logo-xl" role="img" aria-label="Landén Media"></span>
+      <span class="logo logo-xl" role="img" aria-label="NordenMedia"></span>
       <div class="footer-bottom">
-        <p>© <span data-year>2026</span> Landén Media</p>
+        <p>© <span data-year>2026</span> NordenMedia</p>
         <ul class="footer-legal">
           {foot_lang}
           <li><a href="#top" class="to-top">Till toppen <i class="ph-light ph-arrow-up" aria-hidden="true"></i></a></li>
@@ -288,7 +289,25 @@ def render(key, lang):
     html = html.replace("{{p}}", p)
     if key == "404":
         html = re.sub(r'(href|src)="(?!/|https?:|#|mailto:)', r'\1="/', html)
-    return html
+    return add_logo(html)
+
+
+LOGO = json.load(open(os.path.join(ROOT, "tools", "logo_paths.json"), encoding="utf-8"))
+
+
+def add_logo(html):
+    """Embed the NordenMedia logo once per page and reference it wherever <span class="logo..."> is used."""
+    vb = f'0 0 {LOGO["w"]} {LOGO["h"]}'
+    html = re.sub(r'<span class="(logo[^"]*)"([^>]*)></span>',
+                  rf'<svg class="\1" viewBox="{vb}"\2 focusable="false"><use href="#nm-logo"/></svg>', html)
+    sprite = (
+        '<svg class="nm-sprite" aria-hidden="true" focusable="false"><defs>'
+        '<linearGradient id="nm-g" x1="0" y1="0" x2="1" y2="1">'
+        '<stop offset="0" style="stop-color:var(--nm-1)"/><stop offset="1" style="stop-color:var(--nm-2)"/></linearGradient>'
+        f'<symbol id="nm-logo" viewBox="{vb}"><path fill="url(#nm-g)" d="{LOGO["icon"]}"/>'
+        f'<path fill="currentColor" d="{LOGO["word"]}"/></symbol></defs></svg>'
+    )
+    return re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n  " + sprite, html, count=1)
 
 
 def translate(key, html):

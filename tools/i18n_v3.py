@@ -4,7 +4,7 @@ T3 = [
     # 6 -> 1
     ('aria-label="Jämför"', 'aria-label="Compare"'),
     ('data-merge-btn="before">Idag<', 'data-merge-btn="before">Today<'),
-    ('data-merge-btn="after">Med Landén Media<', 'data-merge-btn="after">With Landén Media<'),
+    ('data-merge-btn="after">Med NordenMedia<', 'data-merge-btn="after">With NordenMedia<'),
     ('<span data-plural="faktura|fakturor">fakturor</span>', '<span data-plural="invoice|invoices">invoices</span>'),
     ('<span data-plural="kontakt|kontakter">kontakter</span>', '<span data-plural="contact|contacts">contacts</span>'),
     ("Sex leverantörer blev en.", "Six suppliers became one."),

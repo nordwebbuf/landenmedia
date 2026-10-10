@@ -1,4 +1,4 @@
-/* Landén Media
+/* NordenMedia
    Shape rule: surfaces, images and inputs use --r (10px); buttons, chips and tags are pills. */
 
 :root {
@@ -131,15 +131,20 @@ button, input, textarea { font: inherit; color: inherit; }
   padding-inline: var(--gutter);
 }
 
-/* Logo (PNG used as mask so it follows the text colour in both themes) */
+/* Logo: inline SVG (see tools/build.py). The wordmark follows the text colour,
+   the N mark keeps its blue gradient, lightened in dark mode. */
+:root { --nm-1: #030812; --nm-2: #1A3478; }
+:root[data-theme="dark"] { --nm-1: #9DB6FF; --nm-2: #3F67E0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --nm-1: #9DB6FF; --nm-2: #3F67E0; } }
 .logo {
   display: block;
-  width: 152px;
-  aspect-ratio: 922 / 112;
-  background-color: var(--ink);
-  -webkit-mask: url("../assets/logo.svg") center / contain no-repeat;
-          mask: url("../assets/logo.svg") center / contain no-repeat;
+  width: 176px;
+  height: auto;
+  aspect-ratio: 1830 / 219;
+  color: var(--ink);
+  overflow: visible;
 }
+.nm-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .logo-sm { width: 112px; opacity: .9; }
 .logo-xl { width: 100%; margin-block: clamp(56px, 8vw, 104px) clamp(28px, 4vw, 44px); }
 

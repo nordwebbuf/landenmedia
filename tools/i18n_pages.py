@@ -2,8 +2,8 @@
 
 T2 = [
     # consent text (link target is rewritten by the build)
-    ("Jag godkänner att Landén Media sparar mina uppgifter för att kunna svara på förfrågan. Läs vår <a href=",
-     "I agree that Landén Media may store my details in order to reply to my request. Read our <a href="),
+    ("Jag godkänner att NordenMedia sparar mina uppgifter för att kunna svara på förfrågan. Läs vår <a href=",
+     "I agree that NordenMedia may store my details in order to reply to my request. Read our <a href="),
     (">integritetspolicy</a>.", ">privacy policy</a>."),
     # home
     ("Person som arbetar vid en bärbar dator på ett träbord", "Person working at a laptop on a wooden table"),
@@ -88,8 +88,8 @@ T2 = [
     ("Offereras per tillfälle. Ni får ett fast pris innan vi börjar.", "Quoted per event. You get a fixed price before we start."),
     # about
     ("Tekniken är vårt jobb. <strong>Ert företag är vårt fokus.</strong>", "Technology is our job. <strong>Your business is our focus.</strong>"),
-    ("Landén Media hjälper små och medelstora företag med allt digitalt, från hemsida och synlighet till livesändningar. En kontakt, tydliga priser och teknik som bara fungerar.",
-     "Landén Media helps small and medium-sized businesses with everything digital, from websites and visibility to live streaming. One contact, clear prices and technology that just works."),
+    ("NordenMedia hjälper små och medelstora företag med allt digitalt, från hemsida och synlighet till livesändningar. En kontakt, tydliga priser och teknik som bara fungerar.",
+     "NordenMedia helps small and medium-sized businesses with everything digital, from websites and visibility to live streaming. One contact, clear prices and technology that just works."),
     ("Vi som jobbar här", "The people who work here"),
     ("Foto kommer", "Photo coming soon"),
     ("Förnamn Efternamn", "First Last"),

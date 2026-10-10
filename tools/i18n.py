@@ -1,5 +1,5 @@
 """Swedish -> English translations used by tools/build.py."""
-SITE = "https://landenmedia.se"
+SITE = "https://nordenmedia.se"
 
 # Section ids: Swedish -> English
 IDS = {
@@ -12,11 +12,11 @@ IDS = {
 T = [
     # head
     ('<html lang="sv">', '<html lang="en">'),
-    ("Landén Media | Hemsida, mejl och synlighet hos en partner", "Landén Media | Website, email and visibility from one partner"),
-    ("Landén Media samlar små och medelstora företags digitala behov hos en partner. Hemsida, domän, företagsmejl, SEO, automatisering och drift. En kontakt och en faktura.",
-     "Landén Media brings all the digital needs of small and medium-sized businesses together with one partner. Website, domain, business email, SEO, automation and hosting. One contact and one invoice."),
+    ("NordenMedia | Hemsida, mejl och synlighet hos en partner", "NordenMedia | Website, email and visibility from one partner"),
+    ("NordenMedia samlar små och medelstora företags digitala behov hos en partner. Hemsida, domän, företagsmejl, SEO, automatisering och drift. En kontakt och en faktura.",
+     "NordenMedia brings all the digital needs of small and medium-sized businesses together with one partner. Website, domain, business email, SEO, automation and hosting. One contact and one invoice."),
     ('content="sv_SE"', 'content="en_GB"'),
-    ("Landén Media | Er digitala helhet. En partner.", "Landén Media | Everything digital. One partner."),
+    ("NordenMedia | Er digitala helhet. En partner.", "NordenMedia | Everything digital. One partner."),
     ("Hemsida, domän, mejl, synlighet och drift. En kontakt och en faktura för hela er digitala närvaro.",
      "Website, domain, email, visibility and hosting. One contact and one invoice for your entire digital presence."),
     (f'<meta property="og:url" content="{SITE}/">', f'<meta property="og:url" content="{SITE}/en/">'),
@@ -46,7 +46,7 @@ T = [
      "Number of visits and where they came from, enquiries and bookings via the website, plus our comments on what is working and what we will do next."),
     # header / nav
     ("Hoppa till innehållet", "Skip to content"),
-    ("Landén Media, till startsidan", "Landén Media, home"),
+    ("NordenMedia, till startsidan", "NordenMedia, home"),
     ('aria-label="Huvudmeny"', 'aria-label="Main menu"'),
     ('aria-label="Mobilmeny"', 'aria-label="Mobile menu"'),
     (">Tjänster<", ">Services<"),
@@ -252,12 +252,12 @@ T = [
     ("Meddelande <span", "Message <span"),
     ("Lämna detta fält tomt", "Leave this field empty"),
     ('name="samtycke" value="ja"', 'name="consent" value="yes"'),
-    ('Jag godkänner att Landén Media sparar mina uppgifter för att kunna svara på förfrågan. Läs vår <a href="integritetspolicy.html">integritetspolicy</a>.',
-     'I agree that Landén Media may store my details in order to reply to my request. Read our <a href="privacy.html">privacy policy</a>.'),
+    ('Jag godkänner att NordenMedia sparar mina uppgifter för att kunna svara på förfrågan. Läs vår <a href="integritetspolicy.html">integritetspolicy</a>.',
+     'I agree that NordenMedia may store my details in order to reply to my request. Read our <a href="privacy.html">privacy policy</a>.'),
     ("Godkänn för att vi ska kunna svara er.", "Please agree so that we can reply to you."),
     ("Vi svarar personligen och delar aldrig era uppgifter.", "We reply personally and never share your details."),
     ("Skicka förfrågan", "Send request"),
-    ("Något gick fel. Försök igen eller mejla oss på hej@landenmedia.se.", "Something went wrong. Please try again or email us at hej@landenmedia.se."),
+    ("Något gick fel. Försök igen eller mejla oss på hej@nordenmedia.se.", "Something went wrong. Please try again or email us at hej@nordenmedia.se."),
     ("Tack, vi har fått er förfrågan.", "Thank you, we have received your request."),
     ("Vi hör av oss inom kort för att boka ett samtal.", "We will be in touch shortly to book a call."),
     # footer
@@ -278,6 +278,6 @@ T = [
 ]
 
 # Swedish proper nouns allowed to remain
-ALLOWED = ["Landén", "Ung Företagsamhet", "Björknäsgymnasiet", "Företagarna", "Bodens kommun",
+ALLOWED = ["NordenMedia", "Ung Företagsamhet", "Björknäsgymnasiet", "Företagarna", "Bodens kommun",
            "ung-foretagsamhet", "bjorknasgymnasiet", "foretagarna", "Byt till svenska", "Svenska",
-           "landenmedia", "lang=\"sv\"", "hreflang=\"sv\""]
+           "nordenmedia", "lang=\"sv\"", "hreflang=\"sv\""]
