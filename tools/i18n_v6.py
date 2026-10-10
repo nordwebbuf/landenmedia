@@ -5,8 +5,6 @@ T6 = [
     ("Hemsidor för företag och organisationer", "Websites for businesses and organisations"),
     ("Vi bygger hemsidor som visar vilka ni är, syns på Google och ger fler kunder. Sedan sköter vi allt, från drift till uppdateringar.",
      "We build websites that show who you are, get found on Google and win more customers. Then we handle everything, from hosting to updates."),
-    ("Byt bakgrund", "Change background"),
-    ("Välj bakgrund", "Choose background"),
     # guarantee
     ("Nöjd-kund-garanti", "Satisfaction guarantee"),
     ("Vi bygger klart och visar resultatet. Först när ni har godkänt det skickar vi fakturan. Ingen förskottsbetalning, ingen risk.",

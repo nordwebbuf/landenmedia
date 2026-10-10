@@ -150,15 +150,10 @@
     }, { threshold: 0.5 }).observe(shift);
   }
 
-  // ---------- Hero background picker (lets you try different backgrounds) ----------
-  const picker = document.querySelector('[data-bg-picker]');
-  const heroPhoto = document.querySelector('.hero-photo');
-  if (picker && heroPhoto) {
+  // ---------- Hero slideshow ----------
+  const heroPhoto = document.querySelector('.hero-photo[data-slideshow]');
+  if (heroPhoto) {
     const img = heroPhoto.querySelector('.hero-bg img');
-    const toggleBtn = picker.querySelector('.bg-picker-toggle');
-    const panel = picker.querySelector('.bg-panel');
-    const list = picker.querySelector('[data-bg-options]');
-    const pic = (id, w, h) => `https://picsum.photos/id/${id}/${w}/${h}`;
     // Slideshow of Nordic landscapes. Photos from Wikimedia Commons, credited as their licences require.
     const ownSrc = document.querySelector('script[src*="js/v3.js"]');
     const nordenDir = new URL('../assets/hero/norden/', ownSrc ? ownSrc.src : location.href).href;
@@ -172,40 +167,6 @@
       { file: 'senja', sv: 'Segla, Senja, Norge', en: 'Segla, Senja, Norway', pos: '50% 50%', by: 'Ximonic (Simo Räsänen)', lic: 'CC BY-SA 4.0', src: 'View_from_a_ridge_between_Segla_and_Hesten,_Senja,_Norway,_2014_August.jpg' },
       { file: 'skogafoss', sv: 'Skógafoss, Island', en: 'Skógafoss, Iceland', pos: '65% 50%', by: 'Martin Falbisoner', lic: 'CC BY-SA 4.0', src: 'Sk%C3%B3gafoss_July_2014.JPG' },
       { file: 'abisko', sv: 'Norrsken i Abisko, Sverige', en: 'Northern lights in Abisko, Sweden', pos: '50% 40%', by: 'Pavel.shyshkouski', lic: 'CC BY-SA 4.0', src: 'Aurora_in_Abisko_near_Tornetr%C3%A4sk.jpg' },
-    ];
-    const BGS = [
-      { key: 'norden', sv: 'Bildspel: Nordens landskap', en: 'Slideshow: Nordic landscapes', slides: true },
-      { key: 'forest', sv: 'Granskog i skymning', en: 'Pine forest at dusk', id: 648, pos: '50% 55%' },
-      { key: 'mountains', sv: 'Snöfjäll i blå timmen', en: 'Snowy peaks, blue hour', id: 684, pos: '50% 40%' },
-      { key: 'stars', sv: 'Stjärnhimmel', en: 'Starry sky', id: 537, pos: '50% 50%' },
-      { key: 'boathouse', sv: 'Sjöbod i natten', en: 'Boathouse at night', id: 594, pos: '50% 60%' },
-      { key: 'lake', sv: 'Fjällsjö', en: 'Mountain lake', id: 450, pos: '50% 50%' },
-      { key: 'mist', sv: 'Fjäll i dimma', en: 'Mountains in mist', id: 260, pos: '50% 50%' },
-      { key: 'peak', sv: 'Fjälltopp', en: 'Mountain peak', id: 676, pos: '50% 35%' },
-      { key: 'desk', sv: 'Arbetsplats', en: 'Workspace', id: 1, pos: '50% 45%' },
-      { key: 'cafe', sv: 'Kafé', en: 'Café', id: 42, pos: '50% 50%' },
-      { key: 'fog-forest', sv: 'Granskog i dimma', en: 'Spruce forest in fog', id: 634, pos: '50% 50%' },
-      { key: 'valley', sv: 'Dimma över dalen', en: 'Mist over the valley', id: 443, pos: '50% 50%' },
-      { key: 'ridge-cloud', sv: 'Molnig skogsås', en: 'Cloudy forest ridge', id: 353, pos: '50% 45%' },
-      { key: 'forest-path', sv: 'Skogsstig i dimma', en: 'Forest path in fog', id: 229, pos: '50% 50%' },
-      { key: 'fjord', sv: 'Fjord', en: 'Fjord', id: 507, pos: '50% 55%' },
-      { key: 'still-water', sv: 'Stilla vatten i dimma', en: 'Still water in fog', id: 302, pos: '50% 50%' },
-      { key: 'sea', sv: 'Havsyta', en: 'Sea surface', id: 384, pos: '50% 50%' },
-      { key: 'dusk-sea', sv: 'Hav i skymning', en: 'Sea at dusk', id: 135, pos: '50% 50%' },
-      { key: 'star-trails', sv: 'Stjärnspår', en: 'Star trails', id: 683, pos: '50% 40%' },
-      { key: 'night-forest', sv: 'Natthimmel över skogen', en: 'Night sky over the forest', id: 681, pos: '50% 50%' },
-      { key: 'snow-roofs', sv: 'Snötäckta tak', en: 'Snow-covered roofs', id: 188, pos: '50% 50%' },
-      { key: 'snow-peaks', sv: 'Snöiga toppar', en: 'Snowy peaks', id: 256, pos: '50% 50%' },
-      { key: 'blue-peaks', sv: 'Fjäll under blå himmel', en: 'Mountains under blue sky', id: 327, pos: '50% 60%' },
-      { key: 'forest-edge', sv: 'Skogsbryn i solnedgång', en: 'Forest edge at sunset', id: 83, pos: '50% 50%' },
-      { key: 'mountain-ridge', sv: 'Fjällkam', en: 'Mountain ridge', id: 296, pos: '50% 55%' },
-      { key: 'above-clouds', sv: 'Över molnen', en: 'Above the clouds', id: 685, pos: '50% 50%' },
-      { key: 'evening-peak', sv: 'Bergstopp i kvällsljus', en: 'Peak in evening light', id: 664, pos: '50% 45%' },
-      { key: 'forest-road', sv: 'Väg genom skogen', en: 'Road through the forest', id: 650, pos: '50% 50%' },
-      { key: 'desk-top', sv: 'Skrivbord ovanifrån', en: 'Desk from above', id: 370, pos: '50% 50%' },
-      { key: 'keyboard', sv: 'Tangentbord', en: 'Keyboard', id: 366, pos: '50% 50%' },
-      { key: 'navy', sv: 'Marinblå toning', en: 'Navy gradient', css: 'radial-gradient(90% 70% at 85% 110%, #1B3B96 0%, #0D1D45 45%, #02070F 100%)' },
-      { key: 'aurora', sv: 'Norrsken', en: 'Northern lights', css: 'radial-gradient(40% 40% at 30% 35%, rgb(46 220 155 / .7), transparent 70%), radial-gradient(40% 40% at 70% 30%, rgb(80 110 255 / .6), transparent 70%), #040A18' },
     ];
     // ---- Slideshow: crossfading layers, a caption with photo credit and a pause button ----
     const show = (() => {
@@ -268,50 +229,12 @@
         start() {
           if (!layers) build();
           running = true;
-          layers.hidden = false; credit.hidden = false;
           go(idx); tick();
-        },
-        stop() {
-          running = false; clearTimeout(timer);
-          if (layers) { layers.hidden = true; credit.hidden = true; }
         },
       };
     })();
 
-    const apply = (bg) => {
-      heroPhoto.dataset.bg = bg.key;
-      if (bg.slides) show.start(); else show.stop();
-      if (bg.id !== undefined) {
-        img.removeAttribute('srcset');
-        img.src = pic(bg.id, 2400, 1500);
-        img.style.objectPosition = bg.pos;
-      }
-      list.querySelectorAll('.bg-option').forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.key === bg.key)));
-      try { localStorage.setItem('nm-hero-bg2', bg.key); } catch (e) { /* storage unavailable */ }
-    };
-    BGS.forEach((bg) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'bg-option';
-      b.dataset.key = bg.key;
-      b.setAttribute('aria-pressed', String(heroPhoto.dataset.bg === bg.key));
-      const thumb = document.createElement('span');
-      thumb.className = 'bg-thumb';
-      thumb.style.backgroundImage = bg.css || (bg.slides ? `url("${nordenDir}geiranger-thumb.jpg")` : `url("${pic(bg.id, 320, 200)}")`);
-      const label = document.createElement('span');
-      label.textContent = en ? bg.en : bg.sv;
-      b.append(thumb, label);
-      b.addEventListener('click', () => apply(bg));
-      list.appendChild(b);
-    });
-    const setOpen = (open) => { panel.hidden = !open; toggleBtn.setAttribute('aria-expanded', String(open)); };
-    toggleBtn.addEventListener('click', () => setOpen(panel.hidden));
-    document.addEventListener('click', (e) => { if (!picker.contains(e.target)) setOpen(false); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) { setOpen(false); toggleBtn.focus(); } });
-    let saved = null;
-    try { saved = localStorage.getItem('nm-hero-bg2'); } catch (e) { /* storage unavailable */ }
-    const initial = BGS.find((b) => b.key === saved) || BGS.find((b) => b.key === heroPhoto.dataset.bg);
-    if (initial && (initial.key !== heroPhoto.dataset.bg || initial.slides)) apply(initial);
+    show.start();
   }
 
   // ---------- 2. Calculator ----------
