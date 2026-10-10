@@ -49,6 +49,15 @@
   });
   const press = (group, btn) => group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
 
+  // ---------- Header floats over the dark hero until the hero has scrolled past ----------
+  const darkHero = document.querySelector('[data-hero-dark]');
+  const siteHeader = document.querySelector('[data-header]');
+  if (darkHero && siteHeader && 'IntersectionObserver' in window) {
+    const update = () => siteHeader.classList.toggle('is-over-hero', darkHero.getBoundingClientRect().bottom > siteHeader.offsetHeight);
+    new IntersectionObserver(update, { threshold: Array.from({ length: 41 }, (_, i) => i / 40) }).observe(darkHero);
+    update();
+  }
+
   // ---------- 1. Six suppliers become one ----------
   const merge = document.querySelector('[data-merge]');
   if (merge) {

@@ -34,7 +34,7 @@
     const dark = isDark();
     if (themeIcon) themeIcon.className = `ph-light ${dark ? 'ph-sun' : 'ph-moon'}`;
     if (themeBtn) themeBtn.setAttribute('aria-label', dark ? t.toLight : t.toDark);
-    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', dark ? '#0E1110' : '#F3F4F1'));
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', dark ? '#070B16' : '#F5F6F9'));
   };
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {

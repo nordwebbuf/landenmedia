@@ -109,8 +109,8 @@ def head(key, lang, p):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   <meta name="description" content="{desc}">{robots}
-  <meta name="theme-color" content="#F3F4F1" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0E1110" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F5F6F9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#070B16" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{"sv_SE" if lang == "sv" else "en_GB"}">
   <meta property="og:site_name" content="NordenMedia">
@@ -304,7 +304,9 @@ def add_logo(html):
         '<svg class="nm-sprite" aria-hidden="true" focusable="false"><defs>'
         '<linearGradient id="nm-g" x1="0" y1="0" x2="1" y2="1">'
         '<stop offset="0" style="stop-color:var(--nm-1)"/><stop offset="1" style="stop-color:var(--nm-2)"/></linearGradient>'
-        f'<symbol id="nm-logo" viewBox="{vb}"><path fill="url(#nm-g)" d="{LOGO["icon"]}"/>'
+        '<linearGradient id="nm-g-light" x1="0" y1="0" x2="1" y2="1">'
+        '<stop offset="0" stop-color="#C9D7FF"/><stop offset="1" stop-color="#6F93FF"/></linearGradient>'
+        f'<symbol id="nm-logo" viewBox="{vb}"><path style="fill:var(--nm-icon-fill, url(#nm-g))" d="{LOGO["icon"]}"/>'
         f'<path fill="currentColor" d="{LOGO["word"]}"/></symbol></defs></svg>'
     )
     return re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n  " + sprite, html, count=1)
