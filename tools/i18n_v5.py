@@ -1,0 +1,70 @@
+"""Translations for the results / pay-when-satisfied update. Applied first."""
+
+T5 = [
+    # guarantee
+    ("Ni betalar först när ni är nöjda.", "You only pay when you are happy."),
+    ("Vi bygger klart, ni ser resultatet och godkänner det. Först då skickar vi fakturan. Ingen risk för er.",
+     "We finish the work, you see the result and approve it. Only then do we send the invoice. No risk for you."),
+    ("Ingen förskottsbetalning", "No upfront payment"),
+    ("</i>Ni godkänner resultatet</li>", "</i>You approve the result</li>"),
+    ("Fast pris, inga överraskningar", "Fixed price, no surprises"),
+    # what we do
+    ("Webb och livesändning. <strong>Med hög kvalitet.</strong>", "Web and live streaming. <strong>Built to a high standard.</strong>"),
+    ("Hemsidor som ger fler kunder och sändningar som håller hög kvalitet, från första skissen till eventdagen.",
+     "Websites that bring in more customers and broadcasts of high quality, from the first sketch to event day."),
+    ("Hemsidor och webbsystem som ger resultat", "Websites and web systems that deliver results"),
+    # results
+    ("Det här får ni. <strong>Resultat som märks.</strong>", "What you get. <strong>Results you notice.</strong>"),
+    ("Vi mäter vårt arbete i det ni får ut av det: fler kunder, bättre kvalitet och mer tid till verksamheten.",
+     "We measure our work by what you get out of it: more customers, better quality and more time for your business."),
+    ("<h3>Fler som hittar er</h3>", "<h3>More people find you</h3>"),
+    ("Sökmotoroptimering, optimering för AI-svar och en genomarbetad Google-företagsprofil gör att kunderna hittar rätt, oavsett var de söker.",
+     "Search engine optimisation, optimisation for AI answers and a well-crafted Google Business Profile help customers find you, wherever they search."),
+    ("<h3>En hemsida i toppklass</h3>", "<h3>A first-class website</h3>"),
+    ("Modern, snabb och tydlig i både dator och mobil, med vägar som leder besökare till att höra av sig eller boka.",
+     "Modern, fast and clear on both desktop and mobile, with paths that lead visitors to get in touch or book."),
+    ("<h3>Sändningar i hög kvalitet</h3>", "<h3>High-quality broadcasts</h3>"),
+    ("Flera kameror, tydligt ljud och grafik i bild, så att era event och sammanträden ser professionella ut.",
+     "Multiple cameras, clear sound and on-screen graphics, so your events and meetings look professional."),
+    ("<h3>Mer tid, mindre stress</h3>", "<h3>More time, less stress</h3>"),
+    ("Bokningar, påminnelser och utskick sköter sig själva, och vi tar hand om drift och uppdateringar.",
+     "Bookings, reminders and mailings take care of themselves, and we handle hosting and updates."),
+    ("<h3>Koll på resultatet, varje månad</h3>", "<h3>Results tracked, every month</h3>"),
+    ("En kort rapport över besök och förfrågningar visar vad hemsidan ger och vad vi förbättrar härnäst.",
+     "A short report on visits and enquiries shows what the website delivers and what we will improve next."),
+    # who does what
+    ("Vem gör vad? <strong>Vi tar hand om tekniken.</strong>", "Who does what? <strong>We take care of the tech.</strong>"),
+    ("Tryck på knappen och se vad som flyttas från ert bord när vi tar över, så att ni kan fokusera på kunderna.",
+     "Press the button and see what moves off your desk when we take over, so you can focus on your customers."),
+    # steps
+    ("Så går det till. <strong>Utan risk för er.</strong>", "How it works. <strong>With no risk for you.</strong>"),
+    ("<h3>Vi bygger</h3>", "<h3>We build</h3>"),
+    ("Ni får ett fast pris. Vi bygger, flyttar och kopplar ihop allt, och ni ser resultatet innan något går live.",
+     "You get a fixed price. We build, move and connect everything, and you see the result before anything goes live."),
+    ("<h3>Ni godkänner och betalar</h3>", "<h3>You approve and pay</h3>"),
+    ("Först när ni är nöjda med resultatet skickar vi fakturan. Sedan sköter vi drift, uppdateringar och support.",
+     "Only when you are happy with the result do we send the invoice. Then we handle hosting, updates and support."),
+    # FAQ
+    ("Ni betalar en fast startkostnad för att vi bygger hemsidan och därefter en månadsavgift från 495 kr exkl. moms för drift, uppdateringar och support. Livesändningar offereras per tillfälle.",
+     "You pay a fixed start-up cost for us to build the website, then a monthly fee from 495 SEK excl. VAT for hosting, updates and support. Live streaming is quoted per event."),
+    ("När betalar vi?", "When do we pay?"),
+    ("Först när resultatet är uppnått och ni är nöjda. Startkostnaden faktureras när ni har godkänt den färdiga hemsidan, och månadsavgiften börjar därefter.",
+     "Only once the result is achieved and you are happy. The start-up cost is invoiced when you have approved the finished website, and the monthly fee starts after that."),
+    # about
+    ("<h3>Betala när ni är nöjda</h3><p>Fast pris, och ingen faktura förrän resultatet är uppnått.</p>",
+     "<h3>Pay when you are happy</h3><p>A fixed price, and no invoice until the result is achieved.</p>"),
+    # pricing
+    ("Fast startpris. <strong>Sedan en fast månadsavgift.</strong>", "A fixed start-up price. <strong>Then a fixed monthly fee.</strong>"),
+    ("Ni betalar startkostnaden först när hemsidan är klar och ni är nöjda. Därefter en månadsavgift för drift, uppdateringar och support.",
+     "You pay the start-up cost only once the website is finished and you are happy. After that, a monthly fee for hosting, updates and support."),
+    ("Alla priser exkl. moms. Startkostnaden är ett fast pris som ni får efter första samtalet, och den faktureras först när ni har godkänt resultatet.",
+     "All prices exclude VAT. The start-up cost is a fixed price you receive after the first call, and it is only invoiced once you have approved the result."),
+    ("</i>Fast startkostnad</p>", "</i>Fixed start-up cost</p>"),
+    ('<th scope="row">Startkostnad</th><td>Fast pris</td><td>Fast pris</td><td>Fast pris</td>',
+     '<th scope="row">Start-up cost</th><td>Fixed price</td><td>Fixed price</td><td>Fixed price</td>'),
+    # web services process
+    ("Ni får ett fast pris för att bygga och en tydlig månadsavgift, med vad som ingår och när det kan vara klart.",
+     "You get a fixed price for the build and a clear monthly fee, with what is included and when it can be ready."),
+    ("Ni godkänner resultatet och allt går live, med sökoptimering och Google-företagsprofil på plats från första dagen. Först då skickar vi fakturan.",
+     "You approve the result and everything goes live, with SEO and your Google Business Profile in place from day one. Only then do we send the invoice."),
+]

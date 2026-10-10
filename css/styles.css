@@ -134,8 +134,8 @@ button, input, textarea { font: inherit; color: inherit; }
 /* Logo: inline SVG (see tools/build.py). The wordmark follows the text colour,
    the N mark keeps its blue gradient, lightened in dark mode. */
 :root { --nm-1: #030812; --nm-2: #1A3478; }
-:root[data-theme="dark"] { --nm-1: #9DB6FF; --nm-2: #3F67E0; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --nm-1: #9DB6FF; --nm-2: #3F67E0; } }
+:root[data-theme="dark"] { --nm-1: #FFFFFF; --nm-2: #FFFFFF; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --nm-1: #FFFFFF; --nm-2: #FFFFFF; } }
 .logo {
   display: block;
   width: 176px;

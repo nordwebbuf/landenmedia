@@ -434,3 +434,72 @@
   .load { flex-wrap: wrap; row-gap: 6px; }
   .load-label { width: 100%; }
 }
+
+/* ---------- Hero leaves a glimpse of the page below ---------- */
+.hero-photo { min-height: min(calc(100svh - 140px), 820px); }
+.hero-photo .hero-foot { margin-top: clamp(28px, 5vh, 56px); }
+.org-logo-tall { height: 58px !important; max-width: none; }
+.logo-grid .org-logo-tall { height: 72px !important; }
+
+/* ---------- Pay when you are happy ---------- */
+.guarantee-wrap { position: relative; z-index: 2; margin-top: -56px; padding-bottom: clamp(24px, 4vw, 48px); }
+.guarantee {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap;
+  padding: clamp(22px, 3vw, 34px) clamp(22px, 3.4vw, 44px);
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 60px -30px rgb(11 23 54 / .35), 0 1px 2px rgb(11 23 54 / .06);
+}
+.guarantee-main { display: flex; align-items: center; gap: 20px; flex: 1 1 420px; }
+.guarantee-seal { width: 64px; height: 64px; border-radius: 18px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: var(--on-accent); font-size: 2rem; box-shadow: 0 0 0 6px var(--accent-soft); }
+.guarantee-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem); letter-spacing: -0.02em; line-height: 1.15; color: var(--ink); }
+.guarantee-main p { margin-top: 6px; color: var(--ink-2); max-width: 56ch; }
+.guarantee-points { display: grid; gap: 10px; }
+.guarantee-points li { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: .9688rem; }
+.guarantee-points i { color: var(--accent); font-size: 1.25rem; }
+.guarantee-inline { margin-top: 24px; box-shadow: none; background: linear-gradient(135deg, var(--accent-soft), var(--surface)); }
+
+/* ---------- What you get ---------- */
+.outcomes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.outcome { padding: clamp(24px, 2.8vw, 34px); border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); }
+.outcome-wide { grid-column: span 2; }
+.outcome i { display: inline-flex; width: 48px; height: 48px; border-radius: 14px; align-items: center; justify-content: center; background: var(--accent-soft); color: var(--accent); font-size: 1.5rem; }
+.outcome h3 { margin-top: 20px; font-size: 1.3125rem; }
+.outcome p { margin-top: 8px; color: var(--ink-2); max-width: 58ch; }
+.outcome-dark { background: var(--accent-block); border-color: transparent; color: var(--accent-block-ink); }
+.outcome-dark h3, .outcome-dark p { color: var(--accent-block-ink); }
+.outcome-dark p { opacity: .85; }
+.outcome-dark i { background: rgb(255 255 255 / .12); color: #fff; }
+.outcome-wide:first-child { background: linear-gradient(135deg, var(--accent-soft), var(--surface) 70%); }
+
+/* ---------- Pricing: one-off start cost ---------- */
+.plan-start { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; font-size: .875rem; font-weight: 500; color: var(--accent); }
+.plan-start + .plan-price { margin-top: 4px; }
+.plan-featured .plan-start { color: #B9CCFF; }
+
+@media (max-width: 960px) {
+  .outcomes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .outcome-wide { grid-column: span 2; }
+  .guarantee-wrap { margin-top: -40px; }
+}
+@media (max-width: 640px) {
+  .outcomes { grid-template-columns: 1fr; }
+  .outcome-wide { grid-column: auto; }
+  .hero-photo { min-height: min(calc(100svh - 120px), 700px); }
+  .guarantee-main { flex-direction: column; align-items: flex-start; flex-basis: 100%; }
+  .guarantee-wrap { margin-top: -32px; }
+}
+/* Room for the guarantee card that overlaps the bottom of the hero */
+.hero-photo { padding-bottom: calc(clamp(24px, 3.5vh, 40px) + 56px); padding-top: calc(var(--header-h) + clamp(28px, 6vh, 88px)); }
+/* Scale the headline and spacing with the screen height, so some of the page shows below the hero */
+.hero-photo .display { font-size: clamp(2.5rem, min(1.4rem + 5.2vw, 9.5vh), 5.75rem); }
+.hero-photo .eyebrow { margin-bottom: clamp(14px, 2.6vh, 26px); }
+.hero-photo .lead { margin-top: clamp(16px, 3vh, 28px); }
+.hero-photo .hero-actions { margin-top: clamp(22px, 4vh, 40px); }
+.hero-photo .hero-foot { margin-top: clamp(20px, 4vh, 56px); padding-top: clamp(14px, 2vh, 24px); }
+@media (max-width: 960px) { .hero-photo { padding-bottom: calc(32px + 40px); } }
+@media (max-width: 640px) {
+  .hero-photo { padding-bottom: calc(28px + 32px); padding-top: calc(var(--header-h) + 40px); }
+  .hero-photo .display { font-size: clamp(2.25rem, 1.2rem + 6vw, 3rem); }
+}

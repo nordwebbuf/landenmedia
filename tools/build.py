@@ -17,8 +17,9 @@ from i18n import T as T1, ALLOWED, SITE  # noqa: E402
 from i18n_pages import T2  # noqa: E402
 from i18n_v3 import T3  # noqa: E402
 from i18n_v4 import T4  # noqa: E402
+from i18n_v5 import T5  # noqa: E402
 
-T = T4 + T1 + T3 + T2
+T = T5 + T4 + T1 + T3 + T2
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -320,7 +321,7 @@ def add_logo(html):
         '<linearGradient id="nm-g" x1="0" y1="0" x2="1" y2="1">'
         '<stop offset="0" style="stop-color:var(--nm-1)"/><stop offset="1" style="stop-color:var(--nm-2)"/></linearGradient>'
         '<linearGradient id="nm-g-light" x1="0" y1="0" x2="1" y2="1">'
-        '<stop offset="0" stop-color="#C9D7FF"/><stop offset="1" stop-color="#6F93FF"/></linearGradient>'
+        '<stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>'
         f'<symbol id="nm-logo" viewBox="{vb}"><path style="fill:var(--nm-icon-fill, url(#nm-g))" d="{LOGO["icon"]}"/>'
         f'<path fill="currentColor" d="{LOGO["word"]}"/></symbol></defs></svg>'
     )
