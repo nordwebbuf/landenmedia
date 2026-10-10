@@ -150,6 +150,63 @@
     }, { threshold: 0.5 }).observe(shift);
   }
 
+  // ---------- Hero background picker (lets you try different backgrounds) ----------
+  const picker = document.querySelector('[data-bg-picker]');
+  const heroPhoto = document.querySelector('.hero-photo');
+  if (picker && heroPhoto) {
+    const img = heroPhoto.querySelector('.hero-bg img');
+    const toggleBtn = picker.querySelector('.bg-picker-toggle');
+    const panel = picker.querySelector('.bg-panel');
+    const list = picker.querySelector('[data-bg-options]');
+    const pic = (id, w, h) => `https://picsum.photos/id/${id}/${w}/${h}`;
+    const BGS = [
+      { key: 'forest', sv: 'Granskog i skymning', en: 'Pine forest at dusk', id: 648, pos: '50% 55%' },
+      { key: 'mountains', sv: 'Snöfjäll i blå timmen', en: 'Snowy peaks, blue hour', id: 684, pos: '50% 40%' },
+      { key: 'stars', sv: 'Stjärnhimmel', en: 'Starry sky', id: 537, pos: '50% 50%' },
+      { key: 'boathouse', sv: 'Sjöbod i natten', en: 'Boathouse at night', id: 594, pos: '50% 60%' },
+      { key: 'lake', sv: 'Fjällsjö', en: 'Mountain lake', id: 450, pos: '50% 50%' },
+      { key: 'mist', sv: 'Fjäll i dimma', en: 'Mountains in mist', id: 260, pos: '50% 50%' },
+      { key: 'peak', sv: 'Fjälltopp', en: 'Mountain peak', id: 676, pos: '50% 35%' },
+      { key: 'desk', sv: 'Arbetsplats', en: 'Workspace', id: 1, pos: '50% 45%' },
+      { key: 'cafe', sv: 'Kafé', en: 'Café', id: 42, pos: '50% 50%' },
+      { key: 'navy', sv: 'Marinblå toning', en: 'Navy gradient', css: 'radial-gradient(90% 70% at 85% 110%, #1B3B96 0%, #0D1D45 45%, #02070F 100%)' },
+      { key: 'aurora', sv: 'Norrsken', en: 'Northern lights', css: 'radial-gradient(40% 40% at 30% 35%, rgb(46 220 155 / .7), transparent 70%), radial-gradient(40% 40% at 70% 30%, rgb(80 110 255 / .6), transparent 70%), #040A18' },
+    ];
+    const apply = (bg) => {
+      heroPhoto.dataset.bg = bg.key;
+      if (bg.id !== undefined) {
+        img.removeAttribute('srcset');
+        img.src = pic(bg.id, 2400, 1500);
+        img.style.objectPosition = bg.pos;
+      }
+      list.querySelectorAll('.bg-option').forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.key === bg.key)));
+      try { localStorage.setItem('nm-hero-bg', bg.key); } catch (e) { /* storage unavailable */ }
+    };
+    BGS.forEach((bg) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'bg-option';
+      b.dataset.key = bg.key;
+      b.setAttribute('aria-pressed', String(heroPhoto.dataset.bg === bg.key));
+      const thumb = document.createElement('span');
+      thumb.className = 'bg-thumb';
+      thumb.style.backgroundImage = bg.css || `url("${pic(bg.id, 320, 200)}")`;
+      const label = document.createElement('span');
+      label.textContent = en ? bg.en : bg.sv;
+      b.append(thumb, label);
+      b.addEventListener('click', () => apply(bg));
+      list.appendChild(b);
+    });
+    const setOpen = (open) => { panel.hidden = !open; toggleBtn.setAttribute('aria-expanded', String(open)); };
+    toggleBtn.addEventListener('click', () => setOpen(panel.hidden));
+    document.addEventListener('click', (e) => { if (!picker.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) { setOpen(false); toggleBtn.focus(); } });
+    let saved = null;
+    try { saved = localStorage.getItem('nm-hero-bg'); } catch (e) { /* storage unavailable */ }
+    const initial = BGS.find((b) => b.key === saved);
+    if (initial && initial.key !== heroPhoto.dataset.bg) apply(initial);
+  }
+
   // ---------- 2. Calculator ----------
   const calc = document.querySelector('[data-calc]');
   if (calc) {

@@ -18,18 +18,19 @@ from i18n_pages import T2  # noqa: E402
 from i18n_v3 import T3  # noqa: E402
 from i18n_v4 import T4  # noqa: E402
 from i18n_v5 import T5  # noqa: E402
+from i18n_v6 import T6  # noqa: E402
 
-T = T5 + T4 + T1 + T3 + T2
+T = T6 + T5 + T4 + T1 + T3 + T2
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # key: (sv file, en file, sv title, en title, sv description, en description)
 PAGES = {
     "index": ("index.html", "index.html",
-              "NordenMedia UF | Webbyrå och livesändning",
-              "NordenMedia UF | Web agency and live streaming",
-              "NordenMedia UF är en webbyrå och livesändningsbyrå. Vi bygger och sköter hemsidor, domän, mejl, SEO och drift, och livesänder event och sammanträden. Ni driver verksamheten, vi sköter tekniken.",
-              "NordenMedia UF is a web agency and live streaming agency. We build and manage websites, domains, email, SEO and hosting, and stream events and meetings live. You run your business, we handle the tech."),
+              "NordenMedia UF | Hemsidor som ger fler kunder",
+              "NordenMedia UF | Websites that win more customers",
+              "NordenMedia UF bygger hemsidor som visar vilka ni är, syns på Google och ger fler kunder. Vi sköter domän, mejl, SEO och drift, och ni betalar först när ni är nöjda.",
+              "NordenMedia UF builds websites that show who you are, get found on Google and win more customers. We handle domain, email, SEO and hosting, and you only pay when you are happy."),
     "webbtjanster": ("webbtjanster.html", "web-services.html",
                      "Webbtjänster | NordenMedia UF",
                      "Web services | NordenMedia UF",
@@ -318,8 +319,10 @@ def add_logo(html):
                   rf'<svg class="\1" viewBox="{vb}"\2 focusable="false"><use href="#nm-logo"/></svg>', html)
     sprite = (
         '<svg class="nm-sprite" aria-hidden="true" focusable="false"><defs>'
-        '<linearGradient id="nm-g" x1="0" y1="0" x2="1" y2="1">'
-        '<stop offset="0" style="stop-color:var(--nm-1)"/><stop offset="1" style="stop-color:var(--nm-2)"/></linearGradient>'
+        # Matches the original logo: near-black navy with a blue glow from the lower right
+        '<radialGradient id="nm-g" cx="0.9" cy="1" r="1.05" gradientUnits="objectBoundingBox">'
+        '<stop offset="0" style="stop-color:var(--nm-0)"/><stop offset="0.21" style="stop-color:var(--nm-1)"/>'
+        '<stop offset="0.53" style="stop-color:var(--nm-2)"/><stop offset="1" style="stop-color:var(--nm-3)"/></radialGradient>'
         '<linearGradient id="nm-g-light" x1="0" y1="0" x2="1" y2="1">'
         '<stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>'
         f'<symbol id="nm-logo" viewBox="{vb}"><path style="fill:var(--nm-icon-fill, url(#nm-g))" d="{LOGO["icon"]}"/>'

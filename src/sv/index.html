@@ -16,20 +16,20 @@
   </script>
 <!--/HEAD-->
     <!-- Hero -->
-    <section class="hero hero-photo" id="top" data-hero-dark>
+    <section class="hero hero-photo" id="top" data-hero-dark data-bg="forest">
       <div class="hero-bg" aria-hidden="true">
         <img
-          src="https://picsum.photos/id/684/1920/1200"
-          srcset="https://picsum.photos/id/684/960/1100 960w, https://picsum.photos/id/684/1600/1100 1600w, https://picsum.photos/id/684/2400/1500 2400w"
+          src="https://picsum.photos/id/648/1920/1200"
+          srcset="https://picsum.photos/id/648/960/1100 960w, https://picsum.photos/id/648/1600/1100 1600w, https://picsum.photos/id/648/2400/1500 2400w"
           sizes="100vw"
           width="1920" height="1200"
           alt=""
           fetchpriority="high">
       </div>
       <div class="container hero-center">
-        <p class="eyebrow hero-in" style="--i:0">Webbyrå och livesändning</p>
+        <p class="eyebrow hero-in" style="--i:0">Hemsidor för företag och organisationer</p>
         <h1 class="display hero-in" style="--i:1">Ni driver verksamheten. <strong>Vi sköter webben.</strong></h1>
-        <p class="lead hero-in" style="--i:2">Hemsida, synlighet och livesändningar. Vi bygger, sköter och uppdaterar allt, så att ni kan luta er tillbaka.</p>
+        <p class="lead hero-in" style="--i:2">Vi bygger hemsidor som visar vilka ni är, syns på Google och ger fler kunder. Sedan sköter vi allt, från drift till uppdateringar.</p>
         <div class="hero-actions hero-in" style="--i:3">
           <a href="{{p}}kontakt.html" class="btn btn-primary">Boka ett samtal <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
           <a href="#vad-vi-gor" class="btn btn-ghost">Se vad vi gör</a>
@@ -42,24 +42,29 @@
           <li><img class="org-logo org-logo-tall" src="{{p}}assets/logos/bjorknasgymnasiet.png" width="390" height="444" alt="Björknäsgymnasiet"></li>
         </ul>
       </div>
+      <div class="bg-picker" data-bg-picker>
+        <button type="button" class="bg-picker-toggle" aria-expanded="false" aria-controls="bg-panel"><i class="ph-light ph-images" aria-hidden="true"></i><span>Byt bakgrund</span></button>
+        <div class="bg-panel" id="bg-panel" hidden>
+          <p class="bg-panel-title">Välj bakgrund</p>
+          <ul class="bg-options" data-bg-options></ul>
+        </div>
+      </div>
     </section>
 
     <!-- Betala när ni är nöjda -->
     <section class="guarantee-wrap" id="garanti" aria-labelledby="garanti-title">
       <div class="container">
         <div class="guarantee reveal">
-          <div class="guarantee-main">
-            <span class="guarantee-seal" aria-hidden="true"><i class="ph-light ph-seal-check"></i></span>
-            <div>
-              <h2 class="guarantee-title" id="garanti-title">Ni betalar först när ni är nöjda.</h2>
-              <p>Vi bygger klart, ni ser resultatet och godkänner det. Först då skickar vi fakturan. Ingen risk för er.</p>
-            </div>
+          <div class="guarantee-copy">
+            <p class="guarantee-kicker"><i class="ph-light ph-seal-check" aria-hidden="true"></i>Nöjd-kund-garanti</p>
+            <h2 class="guarantee-title" id="garanti-title">Ni betalar först när ni är nöjda.</h2>
+            <p class="guarantee-text">Vi bygger klart och visar resultatet. Först när ni har godkänt det skickar vi fakturan. Ingen förskottsbetalning, ingen risk.</p>
           </div>
-          <ul class="guarantee-points">
-            <li><i class="ph-light ph-hand-coins" aria-hidden="true"></i>Ingen förskottsbetalning</li>
-            <li><i class="ph-light ph-check-circle" aria-hidden="true"></i>Ni godkänner resultatet</li>
-            <li><i class="ph-light ph-tag" aria-hidden="true"></i>Fast pris, inga överraskningar</li>
-          </ul>
+          <ol class="guarantee-steps">
+            <li><span class="gs-dot"><i class="ph-light ph-hammer" aria-hidden="true"></i></span><b>Vi bygger klart</b><small>Till ett fast pris</small></li>
+            <li><span class="gs-dot"><i class="ph-light ph-eye" aria-hidden="true"></i></span><b>Ni granskar</b><small>Allt innan lansering</small></li>
+            <li class="gs-pay"><span class="gs-dot"><i class="ph-light ph-check" aria-hidden="true"></i></span><b>Ni godkänner</b><small>Först då kommer fakturan</small></li>
+          </ol>
         </div>
       </div>
     </section>
@@ -68,30 +73,30 @@
     <section class="section" id="for-vem" aria-labelledby="forvem-title">
       <div class="container">
         <header class="section-head section-head-wide reveal">
-          <h2 class="title" id="forvem-title">Känner ni igen er? <strong>Då är ni rätt här.</strong></h2>
-          <p class="lead">Vi arbetar med företag och organisationer som vill synas, men som hellre lägger tiden på det de är bra på.</p>
+          <h2 class="title" id="forvem-title">Känner ni igen er? <strong>Så vänder vi det.</strong></h2>
+          <p class="lead">Vi bygger hemsidor som visar vilka ni är, lockar rätt kunder och gör det enkelt att höra av sig eller boka. Resultatet är fler affärer, inte bara en snyggare sida.</p>
         </header>
 
-        <ul class="pains">
-          <li class="reveal">
-            <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
-            <h3>Ingen hemsida alls</h3>
-            <p>Kunderna letar efter er på nätet, men hittar ingenting.</p>
+        <ul class="turns">
+          <li class="turn reveal">
+            <p class="turn-from"><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i><span>Ingen hemsida, eller en som ingen hittar</span></p>
+            <h3 class="turn-to"><i class="ph-light ph-check" aria-hidden="true"></i>Ni syns där kunderna letar</h3>
+            <p class="turn-text">Sökmotoroptimering, Google-företagsprofil och optimering för AI-svar gör att ni dyker upp när någon söker efter det ni erbjuder.</p>
           </li>
-          <li class="reveal" style="--d:80ms">
-            <i class="ph-light ph-hourglass" aria-hidden="true"></i>
-            <h3>En hemsida från förr</h3>
-            <p>Den ser gammal ut, fungerar dåligt i mobilen och syns sällan på Google.</p>
+          <li class="turn reveal" style="--d:80ms">
+            <p class="turn-from"><i class="ph-light ph-hourglass" aria-hidden="true"></i><span>En hemsida som inte längre speglar er</span></p>
+            <h3 class="turn-to"><i class="ph-light ph-check" aria-hidden="true"></i>En hemsida som visar vilka ni är</h3>
+            <p class="turn-text">Vi lär känna er verksamhet och bygger en sida med er ton, era bilder och det som gör er unika. Kunderna förstår direkt varför de ska välja er.</p>
           </li>
-          <li class="reveal" style="--d:160ms">
-            <i class="ph-light ph-coffee" aria-hidden="true"></i>
-            <h3>Ingen tid eller lust med teknik</h3>
-            <p>Inloggningar, inställningar och uppdateringar är det sista ni vill ägna kvällarna åt.</p>
+          <li class="turn reveal" style="--d:160ms">
+            <p class="turn-from"><i class="ph-light ph-door-open" aria-hidden="true"></i><span>Besökare som lämnar utan att höra av sig</span></p>
+            <h3 class="turn-to"><i class="ph-light ph-check" aria-hidden="true"></i>Fler förfrågningar och ökad försäljning</h3>
+            <p class="turn-text">Tydliga erbjudanden, snabb laddning och enkla vägar till kontakt, bokning eller köp gör fler besökare till kunder.</p>
           </li>
-          <li class="reveal" style="--d:240ms">
-            <i class="ph-light ph-clipboard-text" aria-hidden="true"></i>
-            <h3>Allt sköts för hand</h3>
-            <p>Bokningar via telefon, påminnelser på lappar och mejl som försvinner.</p>
+          <li class="turn reveal" style="--d:240ms">
+            <p class="turn-from"><i class="ph-light ph-clipboard-text" aria-hidden="true"></i><span>Bokningar och påminnelser för hand</span></p>
+            <h3 class="turn-to"><i class="ph-light ph-check" aria-hidden="true"></i>Bokningar som sköter sig själva</h3>
+            <p class="turn-text">Kunder bokar direkt på hemsidan, får bekräftelse och påminnelse automatiskt och hamnar i ert kundregister.</p>
           </li>
         </ul>
       </div>
@@ -100,42 +105,22 @@
     <!-- Vad vi gör -->
     <section class="section section-tight-top" id="vad-vi-gor" aria-labelledby="areas-title">
       <div class="container">
-        <header class="section-head reveal">
-          <h2 class="title" id="areas-title">Webb och livesändning. <strong>Med hög kvalitet.</strong></h2>
-          <p class="lead">Hemsidor som ger fler kunder och sändningar som håller hög kvalitet, från första skissen till eventdagen.</p>
-        </header>
-        <div class="areas">
-          <a class="area reveal" href="{{p}}webbtjanster.html">
-            <span class="area-media"><img src="https://picsum.photos/id/201/1100/760" width="1100" height="760" loading="lazy" alt="Bärbar dator och glasögon på ett skrivbord i trä"></span>
-            <span class="area-body">
-              <span class="area-kicker"><i class="ph-light ph-browsers" aria-hidden="true"></i>Webbyrå</span>
-              <span class="area-title">Hemsidor och webbsystem som ger resultat</span>
-              <span class="area-text">Vi bygger, driftar och uppdaterar. Ni får en hemsida som syns, fungerar i mobilen och tar emot kunder.</span>
-              <span class="area-list">
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Hemsida med bokning, formulär och inloggning</span>
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Domän, DNS och företagsmejl</span>
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>SEO, AI-svar och Google-företagsprofil</span>
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Kundregister och automatiska utskick</span>
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Hosting, drift och månadsrapport</span>
-              </span>
-              <span class="area-link">Läs mer om webbtjänster <i class="ph-light ph-arrow-right" aria-hidden="true"></i></span>
-            </span>
-          </a>
-          <a class="area reveal" style="--d:120ms" href="{{p}}livesandning.html">
-            <span class="area-media"><img src="https://picsum.photos/id/250/1100/760" width="1100" height="760" loading="lazy" alt="Kamera redo för inspelning"><span class="live-badge"><span class="live-dot" aria-hidden="true"></span>Live</span></span>
-            <span class="area-body">
-              <span class="area-kicker"><i class="ph-light ph-broadcast" aria-hidden="true"></i>Livesändning</span>
-              <span class="area-title">Livesändning av event och sammanträden</span>
-              <span class="area-text">Från teknik på plats till färdig sändning. Ni håller i programmet, vi sköter resten.</span>
-              <span class="area-list">
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Kameror, ljud och grafik på plats</span>
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Sändning till hemsida och sociala medier</span>
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Sammanträden, årsmöten och konferenser</span>
-                <span><i class="ph-light ph-check" aria-hidden="true"></i>Inspelning och klipp efteråt</span>
-              </span>
-              <span class="area-link">Läs mer om livesändning <i class="ph-light ph-arrow-right" aria-hidden="true"></i></span>
-            </span>
-          </a>
+        <div class="web-offer reveal">
+          <div class="web-offer-media">
+            <img src="https://picsum.photos/id/201/1200/1000" width="1200" height="1000" loading="lazy" alt="Bärbar dator och glasögon på ett skrivbord i trä">
+          </div>
+          <div class="web-offer-body">
+            <h2 class="title title-sm" id="areas-title">Allt för en hemsida <strong>som ger resultat.</strong></h2>
+            <p class="lead">Vi tar helhetsansvar, från första skissen till löpande drift. Ni får en färdig lösning, inte fler saker att hålla koll på.</p>
+            <ul class="offer-list">
+              <li><i class="ph-light ph-browsers" aria-hidden="true"></i><span><b>Hemsida och webbsystem</b>Med bokning, kontaktformulär och inloggning vid behov.</span></li>
+              <li><i class="ph-light ph-globe-simple" aria-hidden="true"></i><span><b>Domän, DNS och företagsmejl</b>Mejl med ert eget namn, uppsatt och skött av oss.</span></li>
+              <li><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i><span><b>Synlighet</b>SEO, optimering för AI-svar och Google-företagsprofil.</span></li>
+              <li><i class="ph-light ph-arrows-clockwise" aria-hidden="true"></i><span><b>Kundregister och automatisering</b>Bekräftelser, påminnelser och utskick som går av sig själva.</span></li>
+              <li><i class="ph-light ph-shield-check" aria-hidden="true"></i><span><b>Hosting, drift och månadsrapport</b>Vi håller allt igång och visar vad hemsidan ger.</span></li>
+            </ul>
+            <a class="text-link" href="{{p}}webbtjanster.html">Se allt som ingår <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
     </section>
@@ -145,7 +130,7 @@
       <div class="container">
         <header class="section-head reveal">
           <h2 class="title" id="results-title">Det här får ni. <strong>Resultat som märks.</strong></h2>
-          <p class="lead">Vi mäter vårt arbete i det ni får ut av det: fler kunder, bättre kvalitet och mer tid till verksamheten.</p>
+          <p class="lead">Vi mäter vårt arbete i det ni får ut av det: fler kunder, ökad försäljning och mer tid till verksamheten.</p>
         </header>
         <ul class="outcomes">
           <li class="outcome outcome-wide reveal">
@@ -159,9 +144,9 @@
             <p>Modern, snabb och tydlig i både dator och mobil, med vägar som leder besökare till att höra av sig eller boka.</p>
           </li>
           <li class="outcome reveal" style="--d:160ms">
-            <i class="ph-light ph-video-camera" aria-hidden="true"></i>
-            <h3>Sändningar i hög kvalitet</h3>
-            <p>Flera kameror, tydligt ljud och grafik i bild, så att era event och sammanträden ser professionella ut.</p>
+            <i class="ph-light ph-handshake" aria-hidden="true"></i>
+            <h3>Fler kunder och affärer</h3>
+            <p>En hemsida som bygger förtroende och gör det enkelt att ta kontakt, boka eller köpa.</p>
           </li>
           <li class="outcome reveal" style="--d:240ms">
             <i class="ph-light ph-clock-countdown" aria-hidden="true"></i>
@@ -210,7 +195,7 @@
                 <li class="shift-task" data-task><i class="ph-light ph-bell-simple" aria-hidden="true"></i>Bokningar, påminnelser och utskick</li>
                 <li class="shift-task" data-task><i class="ph-light ph-shield-check" aria-hidden="true"></i>Hosting, drift och uppdateringar</li>
                 <li class="shift-task" data-task><i class="ph-light ph-chart-line-up" aria-hidden="true"></i>Följa upp besök och förfrågningar</li>
-                <li class="shift-task" data-task><i class="ph-light ph-video-camera" aria-hidden="true"></i>Teknik och sändning vid event</li>
+                <li class="shift-task" data-task><i class="ph-light ph-lifebuoy" aria-hidden="true"></i>Support när något krånglar</li>
               </ul>
               <div class="shift-core">
                 <span class="shift-core-icon"><i class="ph-light ph-storefront" aria-hidden="true"></i></span>
@@ -250,6 +235,21 @@
             <p>Först när ni är nöjda med resultatet skickar vi fakturan. Sedan sköter vi drift, uppdateringar och support.</p>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- Vi livesänder också -->
+    <section class="section section-tight-top" id="livesandning" aria-labelledby="live-title">
+      <div class="container">
+        <a class="also-live reveal" href="{{p}}livesandning.html">
+          <span class="also-live-media"><img src="https://picsum.photos/id/250/900/600" width="900" height="600" loading="lazy" alt="Kamera redo för inspelning"><span class="live-badge"><span class="live-dot" aria-hidden="true"></span>Live</span></span>
+          <span class="also-live-body">
+            <span class="also-live-kicker">Vi livesänder också</span>
+            <span class="also-live-title" id="live-title">Event och sammanträden, sända professionellt.</span>
+            <span class="also-live-text">Från teknik på plats till färdig sändning till er hemsida eller sociala medier. Offereras per tillfälle.</span>
+            <span class="area-link">Läs mer om livesändning <i class="ph-light ph-arrow-right" aria-hidden="true"></i></span>
+          </span>
+        </a>
       </div>
     </section>
 
