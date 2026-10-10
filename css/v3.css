@@ -339,11 +339,6 @@
 .site-header.is-over-hero:not(.is-open) .header-cta:hover { background: #E3E9F7; }
 .site-header.is-over-hero:not(.is-open) .nav-list a { color: var(--ink-2); }
 .site-header.is-over-hero:not(.is-open) .nav-list a:hover { color: #fff; }
-/* Light mode: the original dark logo, also over the hero */
-:root:not([data-theme="dark"]) .site-header.is-over-hero:not(.is-open) .logo { --nm-icon-fill: url(#nm-g); color: #0B0D12; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .site-header.is-over-hero:not(.is-open) .logo { --nm-icon-fill: url(#nm-g-light); color: var(--ink); }
-}
 
 @media (max-width: 640px) {
   .hero-photo { min-height: min(100svh, 760px); padding-top: calc(var(--header-h) + 48px); }
