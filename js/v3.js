@@ -102,6 +102,54 @@
     }, { threshold: 0.6 }).observe(merge);
   }
 
+  // ---------- Who does what: tasks move from the client's desk to us ----------
+  const shift = document.querySelector('[data-shift]');
+  if (shift) {
+    const btns = shift.querySelectorAll('[data-shift-btn]');
+    const thumb = shift.querySelector('.merge-thumb');
+    const you = shift.querySelector('[data-list="you"]');
+    const us = shift.querySelector('[data-list="us"]');
+    const tasks = [...shift.querySelectorAll('[data-task]')];
+    const swaps = shift.querySelectorAll('[data-before][data-after]');
+    const empty = shift.querySelector('[data-shift-empty]');
+    const placeThumb = () => {
+      const on = shift.querySelector('[data-shift-btn][aria-pressed="true"]');
+      thumb.style.width = `${on.offsetWidth}px`;
+      thumb.style.transform = `translateX(${on.offsetLeft}px)`;
+    };
+    const set = (state) => {
+      if (shift.dataset.state === state) return;
+      const first = tasks.map((t) => t.getBoundingClientRect());
+      const target = state === 'after' ? us : you;
+      tasks.forEach((t) => target.appendChild(t));
+      shift.dataset.state = state;
+      empty.hidden = state === 'after';
+      btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.shiftBtn === state)));
+      swaps.forEach((el) => { el.textContent = el.dataset[state]; });
+      placeThumb();
+      if (reduce) return;
+      tasks.forEach((t, i) => {
+        const last = t.getBoundingClientRect();
+        t.style.transition = 'none';
+        t.style.transform = `translate(${first[i].left - last.left}px, ${first[i].top - last.top}px)`;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          t.style.transition = `transform .8s cubic-bezier(.16, 1, .3, 1) ${i * 60}ms, background-color .4s, border-color .4s, color .4s`;
+          t.style.transform = '';
+        }));
+      });
+    };
+    let auto = true;
+    btns.forEach((b) => b.addEventListener('click', () => { auto = false; set(b.dataset.shiftBtn); }));
+    window.addEventListener('resize', placeThumb);
+    if (document.fonts) document.fonts.ready.then(placeThumb);
+    placeThumb();
+    new IntersectionObserver(([e], obs) => {
+      if (!e.isIntersecting) return;
+      obs.disconnect();
+      setTimeout(() => { if (auto) set('after'); }, 1600);
+    }, { threshold: 0.5 }).observe(shift);
+  }
+
   // ---------- 2. Calculator ----------
   const calc = document.querySelector('[data-calc]');
   if (calc) {

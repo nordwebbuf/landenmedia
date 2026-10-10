@@ -366,3 +366,71 @@
 /* Dark mode: keep the featured plan distinct from the surrounding cards */
 :root[data-theme="dark"] .plan-featured { box-shadow: 0 0 0 1px var(--accent-2), 0 30px 60px -30px rgb(63 111 232 / .45); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .plan-featured { box-shadow: 0 0 0 1px var(--accent-2), 0 30px 60px -30px rgb(63 111 232 / .45); } }
+
+/* ---------- Areas: list of what is included ---------- */
+.area-list { display: grid; gap: 8px; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); }
+.area-list span { display: flex; gap: 10px; align-items: flex-start; font-size: .9375rem; color: var(--ink-2); }
+.area-list i { color: var(--accent); margin-top: 4px; flex-shrink: 0; }
+
+/* ---------- Who does what ---------- */
+.shift-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; margin-bottom: 20px; }
+.load { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.load-label { font-size: .9375rem; color: var(--muted); }
+.load-track { position: relative; width: 180px; height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.load-fill { position: absolute; inset: 0 auto 0 0; width: 92%; border-radius: inherit; background: linear-gradient(90deg, #E8A33D, #D4553A); transition: width 1.2s var(--ease) .3s, background .8s var(--ease) .3s; }
+.shift[data-state="after"] .load-fill { width: 8%; background: linear-gradient(90deg, var(--accent-2), var(--accent)); }
+.load-value { font-family: var(--font-display); font-weight: 500; font-size: 1.125rem; min-width: 11ch; }
+.shift-board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.shift-col { display: flex; flex-direction: column; gap: 14px; padding: clamp(20px, 2.6vw, 32px); border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); min-height: 100%; }
+.shift-col-title { display: flex; align-items: center; gap: 10px; min-height: 28px; font-family: var(--font-display); font-weight: 500; font-size: 1.125rem; }
+.shift-col-title i { color: var(--muted); font-size: 1.25rem; }
+.shift-logo { width: 150px; }
+.shift-list { display: grid; gap: 8px; align-content: start; min-height: 0; }
+.shift-task { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--r); background: var(--bg); border: 1px solid var(--line); font-size: .9688rem; will-change: transform; }
+.shift-task i { font-size: 1.15rem; color: #C2683F; flex-shrink: 0; }
+.shift-us .shift-task { background: var(--accent-soft); border-color: transparent; color: var(--ink); }
+.shift-us .shift-task i { color: var(--accent); }
+.shift-us .shift-task::after { content: "\2713"; margin-left: auto; font-size: .875rem; color: var(--accent); }
+.shift-empty { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 160px; border: 1.5px dashed var(--line-strong); border-radius: var(--r); color: var(--muted); }
+.shift-core { display: flex; align-items: center; gap: 14px; margin-top: auto; padding: 16px; border-radius: var(--r); border: 1px solid var(--line); transition: background-color .8s var(--ease), border-color .8s var(--ease), transform .8s var(--ease), padding .8s var(--ease); }
+.shift-core b { display: block; font-family: var(--font-display); font-weight: 500; font-size: 1.125rem; }
+.shift-core small { display: block; color: var(--muted); font-size: .9063rem; }
+.shift-core-icon { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; background: var(--bg-band); color: var(--muted); font-size: 1.4rem; transition: all .8s var(--ease); }
+.shift[data-state="before"] .shift-core { opacity: .75; }
+.shift[data-state="after"] .shift-you .shift-core { margin-block: auto; }
+.shift[data-state="after"] .shift-core { margin-top: 0; padding: 28px 22px; background: var(--accent-soft); border-color: var(--accent); }
+.shift[data-state="after"] .shift-core-icon { background: var(--accent); color: var(--on-accent); width: 56px; height: 56px; font-size: 1.75rem; }
+.shift[data-state="after"] .shift-core b { font-size: 1.5rem; }
+
+/* ---------- Three easy steps ---------- */
+.easy { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: easy; }
+.easy li { position: relative; padding: clamp(24px, 3vw, 36px); border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); counter-increment: easy; overflow: hidden; }
+.easy li::after { content: counter(easy); position: absolute; right: 18px; top: 6px; font-family: var(--font-display); font-size: 5rem; font-weight: 600; line-height: 1; color: var(--accent); opacity: .08; }
+.easy-icon { width: 52px; height: 52px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: var(--on-accent); font-size: 1.6rem; }
+.easy li:nth-child(3) .easy-icon { background: var(--accent-2); }
+.easy h3 { margin-top: 22px; font-size: 1.375rem; }
+.easy p { margin-top: 8px; color: var(--ink-2); }
+
+@media (max-width: 960px) {
+  .shift-board, .easy { grid-template-columns: 1fr; }
+  .load-track { width: 140px; }
+}
+@media (max-width: 640px) {
+  .shift-bar { flex-direction: column; align-items: stretch; }
+  .shift-bar .merge-toggle { align-self: flex-start; }
+}
+
+/* Split hero (live page): headline sits beside the photo, so keep it a size smaller */
+.hero:not(.hero-photo) .display-page { font-size: clamp(2.5rem, 1.6rem + 2.6vw, 3.5rem); }
+@media (max-width: 640px) {
+  .shift-bar .merge-toggle { align-self: stretch; grid-auto-columns: 1fr; }
+  .shift-bar .merge-toggle button { padding: 9px 8px; font-size: .875rem; white-space: normal; line-height: 1.25; }
+  .load { flex-wrap: nowrap; }
+  .load-track { flex: 1; width: auto; min-width: 60px; }
+  .load-label { font-size: .8125rem; }
+  .load-value { min-width: 0; font-size: 1rem; white-space: nowrap; }
+}
+@media (max-width: 640px) {
+  .load { flex-wrap: wrap; row-gap: 6px; }
+  .load-label { width: 100%; }
+}

@@ -16,49 +16,50 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n import T as T1, ALLOWED, SITE  # noqa: E402
 from i18n_pages import T2  # noqa: E402
 from i18n_v3 import T3  # noqa: E402
+from i18n_v4 import T4  # noqa: E402
 
-T = T1 + T3 + T2
+T = T4 + T1 + T3 + T2
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # key: (sv file, en file, sv title, en title, sv description, en description)
 PAGES = {
     "index": ("index.html", "index.html",
-              "NordenMedia | Hemsida, mejl och synlighet hos en partner",
-              "NordenMedia | Website, email and visibility from one partner",
-              "NordenMedia samlar små och medelstora företags digitala behov hos en partner. Hemsida, domän, företagsmejl, SEO, automatisering, drift och livesändningar.",
-              "NordenMedia brings the digital needs of small and medium-sized businesses together with one partner. Website, domain, email, SEO, automation, hosting and live streaming."),
+              "NordenMedia UF | Webbyrå och livesändning",
+              "NordenMedia UF | Web agency and live streaming",
+              "NordenMedia UF är en webbyrå och livesändningsbyrå. Vi bygger och sköter hemsidor, domän, mejl, SEO och drift, och livesänder event och sammanträden. Ni driver verksamheten, vi sköter tekniken.",
+              "NordenMedia UF is a web agency and live streaming agency. We build and manage websites, domains, email, SEO and hosting, and stream events and meetings live. You run your business, we handle the tech."),
     "webbtjanster": ("webbtjanster.html", "web-services.html",
-                     "Webbtjänster | NordenMedia",
-                     "Web services | NordenMedia",
-                     "Hemsidor, domän, företagsmejl, SEO, AI-svar, Google-företagsprofil, automatisering och drift. Allt hos en partner.",
-                     "Websites, domains, business email, SEO, AI answers, Google Business Profile, automation and hosting. All with one partner."),
+                     "Webbtjänster | NordenMedia UF",
+                     "Web services | NordenMedia UF",
+                     "Hemsidor, domän, företagsmejl, SEO, AI-svar, Google-företagsprofil, automatisering och drift. Vi sköter allt, ni slipper tekniken.",
+                     "Websites, domains, business email, SEO, AI answers, Google Business Profile, automation and hosting. We handle it all, you skip the tech."),
     "livesandning": ("livesandning.html", "live-streaming.html",
-                     "Livesändning | NordenMedia",
-                     "Live streaming | NordenMedia",
-                     "Professionella livesändningar av konferenser, föreläsningar och evenemang. Flera kameror, grafik, sändning och inspelning.",
-                     "Professional live streaming of conferences, lectures and events. Multiple cameras, graphics, streaming and recording."),
+                     "Livesändning | NordenMedia UF",
+                     "Live streaming | NordenMedia UF",
+                     "Livesändning av event och sammanträden, från teknik på plats till färdig sändning. Flera kameror, grafik, sändning och inspelning.",
+                     "Live streaming of events and meetings, from on-site equipment to finished broadcast. Multiple cameras, graphics, streaming and recording."),
     "priser": ("priser.html", "pricing.html",
-               "Priser | NordenMedia",
-               "Pricing | NordenMedia",
+               "Priser | NordenMedia UF",
+               "Pricing | NordenMedia UF",
                "Tre paket med fast månadspris för hemsida, domän, mejl, synlighet och drift.",
                "Three packages with a fixed monthly price for website, domain, email, visibility and hosting."),
     "om-oss": ("om-oss.html", "about.html",
-               "Om oss | NordenMedia",
-               "About us | NordenMedia",
+               "Om oss | NordenMedia UF",
+               "About us | NordenMedia UF",
                "Människorna bakom NordenMedia, våra samarbetspartners och kunder.",
                "The people behind NordenMedia, our partners and clients."),
     "kontakt": ("kontakt.html", "contact.html",
-                "Kontakt | NordenMedia",
-                "Contact | NordenMedia",
+                "Kontakt | NordenMedia UF",
+                "Contact | NordenMedia UF",
                 "Boka ett samtal med NordenMedia. Berätta om ert företag så hör vi av oss.",
                 "Book a call with NordenMedia. Tell us about your business and we will be in touch."),
     "integritetspolicy": ("integritetspolicy.html", "privacy.html",
-                          "Integritetspolicy | NordenMedia",
-                          "Privacy policy | NordenMedia",
+                          "Integritetspolicy | NordenMedia UF",
+                          "Privacy policy | NordenMedia UF",
                           "Så hanterar NordenMedia dina personuppgifter.",
                           "How NordenMedia handles your personal data."),
-    "404": ("404.html", None, "Sidan hittades inte | NordenMedia", None, "Sidan finns inte.", None),
+    "404": ("404.html", None, "Sidan hittades inte | NordenMedia UF", None, "Sidan finns inte.", None),
 }
 
 NAV = ["webbtjanster", "livesandning", "priser", "om-oss"]
@@ -84,7 +85,7 @@ def cta(title, text, primary, secondary_href, secondary_label):
 
 
 CTAS = {
-    "{{CTA}}": cta("Redo att samla allt hos en partner?", "Ett kort samtal räcker för att se vad ert företag behöver. Det kostar ingenting att fråga.", "Boka ett samtal", "priser.html", "Se priser"),
+    "{{CTA}}": cta("Lägg tiden på verksamheten. Vi tar hand om resten.", "Boka ett kort samtal så tar vi det därifrån. Det kostar ingenting att fråga.", "Boka ett samtal", "priser.html", "Se priser"),
     "{{CTA_ALT}}": cta("Osäkra på vilket paket som passar?", "Berätta om ert företag så hjälper vi er att välja. Det kostar ingenting att fråga.", "Boka ett samtal", "webbtjanster.html", "Se webbtjänster"),
     "{{CTA_LIVE}}": cta("Har ni ett evenemang på gång?", "Berätta om det så återkommer vi med ett förslag och ett fast pris.", "Boka ett samtal", "webbtjanster.html", "Se webbtjänster"),
 }
@@ -113,7 +114,7 @@ def head(key, lang, p):
   <meta name="theme-color" content="#070B16" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{"sv_SE" if lang == "sv" else "en_GB"}">
-  <meta property="og:site_name" content="NordenMedia">
+  <meta property="og:site_name" content="NordenMedia UF">
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:image" content="{SITE}/assets/og-image.jpg">
@@ -139,7 +140,7 @@ def head(key, lang, p):
   {{
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "NordenMedia",
+    "name": "NordenMedia UF",
     "url": "{SITE}/",
     "logo": "{SITE}/assets/nordenmedia.svg",
     "image": "{SITE}/assets/og-image.jpg",
@@ -227,7 +228,7 @@ def chrome(key, lang, p, body):
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <p class="footer-tag">Hemsida, domän, mejl, synlighet och drift. Samlat hos en partner.</p>
+        <p class="footer-tag">Webbyrå och livesändning. Ni driver verksamheten, vi sköter tekniken.</p>
         <nav class="footer-cols" aria-label="Sidfot">
           <div>
             <p class="footer-head">Tjänster</p>
@@ -256,7 +257,7 @@ def chrome(key, lang, p, body):
       </div>
       <span class="logo logo-xl" role="img" aria-label="NordenMedia"></span>
       <div class="footer-bottom">
-        <p>© <span data-year>2026</span> NordenMedia</p>
+        <p>© <span data-year>2026</span> NordenMedia UF</p>
         <ul class="footer-legal">
           {foot_lang}
           <li><a href="#top" class="to-top">Till toppen <i class="ph-light ph-arrow-up" aria-hidden="true"></i></a></li>
@@ -289,10 +290,24 @@ def render(key, lang):
     html = html.replace("{{p}}", p)
     if key == "404":
         html = re.sub(r'(href|src)="(?!/|https?:|#|mailto:)', r'\1="/', html)
-    return add_logo(html)
+    return bust_cache(add_logo(html))
 
 
 LOGO = json.load(open(os.path.join(ROOT, "tools", "logo_paths.json"), encoding="utf-8"))
+
+
+def bust_cache(html):
+    """Add a content hash to local CSS/JS links so browsers always load the latest version."""
+    import hashlib
+
+    def ver(m):
+        attr, prefix, path = m.group(1), m.group(2), m.group(3)
+        full = os.path.join(ROOT, path)
+        if not os.path.exists(full):
+            return m.group(0)
+        h = hashlib.md5(open(full, "rb").read()).hexdigest()[:8]
+        return f'{attr}="{prefix}{path}?v={h}"'
+    return re.sub(r'(href|src)="((?:\.\./|/)?)((?:css|js|assets/icons)/[\w./-]+\.(?:css|js))"', ver, html)
 
 
 def add_logo(html):
