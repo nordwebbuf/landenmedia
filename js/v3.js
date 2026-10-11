@@ -1,12 +1,11 @@
 // NordenMedia v3: interactive features (6 -> 1, calculator, FAQ search,
-// package finder, booking demo, name preview, report months, live destinations).
+// booking demo, report months, live destinations).
 (() => {
   const en = document.documentElement.lang === 'en';
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const locale = en ? 'en-GB' : 'sv-SE';
   const fmt = (n) => Math.round(n).toLocaleString(locale);
   const L = en ? {
-    plans: { start: 'Start', foretag: 'Business', helhet: 'Complete' },
     log: (s, t) => [
       `Booking received: ${s}, tomorrow ${t}`,
       'Confirmation emailed to the customer',
@@ -16,9 +15,7 @@
     ],
     months: { jul: 'July 2026', aug: 'August 2026', sep: 'September 2026' },
     pct: (v) => `${v}%`, count: (v) => `+${v}`,
-    defaultName: 'Your Business', tld: '.com',
   } : {
-    plans: { start: 'Start', foretag: 'Företag', helhet: 'Helhet' },
     log: (s, t) => [
       `Bokning mottagen: ${s}, i morgon ${t}`,
       'Bekräftelse mejlad till kunden',
@@ -28,7 +25,6 @@
     ],
     months: { jul: 'Juli 2026', aug: 'Augusti 2026', sep: 'September 2026' },
     pct: (v) => `${v} %`, count: (v) => `${v} st`,
-    defaultName: 'Ert Företag', tld: '.se',
   };
 
   // Animate a number from its current value to a target
@@ -188,26 +184,6 @@
     });
   }
 
-  // ---------- 4. Package finder ----------
-  const finder = document.querySelector('[data-finder]');
-  if (finder) {
-    const answers = {};
-    const result = finder.querySelector('[data-finder-result]');
-    const planName = finder.querySelector('[data-finder-plan]');
-    finder.querySelectorAll('[data-q]').forEach((group) => {
-      group.addEventListener('click', (e) => {
-        const btn = e.target.closest('button');
-        if (!btn) return;
-        press(group, btn);
-        answers[group.dataset.q] = btn.dataset.v === '1';
-        const key = answers.book || answers.auto ? 'helhet' : answers.reach ? 'foretag' : 'start';
-        document.querySelectorAll('[data-plan-key]').forEach((p) => p.classList.toggle('is-match', p.dataset.planKey === key));
-        planName.textContent = L.plans[key];
-        result.hidden = false;
-      });
-    });
-  }
-
   // ---------- 5. Booking demo ----------
   const demo = document.querySelector('[data-demo]');
   if (demo) {
@@ -254,30 +230,6 @@
       empty.hidden = false; book.hidden = false; book.disabled = false; reset.hidden = true;
       book.focus();
     });
-  }
-
-  // ---------- 6. Name preview ----------
-  const pvInputs = document.querySelectorAll('[data-pv-in]');
-  if (pvInputs.length) {
-    const slug = (s) => s.toLowerCase()
-      .replace(/\b(ab|hb|kb|ltd|inc)\b\.?/g, '')
-      .replace(/[åä]/g, 'a').replace(/ö/g, 'o').replace(/[éè]/g, 'e').replace(/ü/g, 'u')
-      .replace(/&/g, 'och').replace(/[^a-z0-9]/g, '') || slug(L.defaultName);
-    const update = () => {
-      const v = {};
-      pvInputs.forEach((i) => { v[i.dataset.pvIn] = i.value.trim(); });
-      const name = v.name || L.defaultName;
-      const out = {
-        name,
-        domain: slug(name) + L.tld,
-        initial: name.charAt(0).toUpperCase(),
-        type: v.type || (en ? 'Business' : 'Företag'),
-        city: v.city || 'Boden',
-      };
-      document.querySelectorAll('[data-pv]').forEach((el) => { el.textContent = out[el.dataset.pv]; });
-    };
-    pvInputs.forEach((i) => i.addEventListener('input', update));
-    update();
   }
 
   // ---------- 7. Report months ----------

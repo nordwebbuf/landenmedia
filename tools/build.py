@@ -2,10 +2,10 @@
 
     python tools/build.py
 
-Page content lives in src/sv/<page>.html (Swedish). The English version is made
-by translating it with the table in tools/i18n.py, unless src/en/<page>.html
-exists, in which case that file is used as is. Header, footer and <head> are
-shared and defined here. The script lists any Swedish text left untranslated.
+Page content lives in src/sv/<page>.html (Swedish) and src/en/<page>.html
+(English, written by hand). Header, footer and <head> are shared and defined
+here; their English text comes from the tables in tools/i18n*.py. The script
+lists any Swedish text left in the English pages.
 """
 import json
 import os
@@ -44,8 +44,8 @@ PAGES = {
     "priser": ("priser.html", "pricing.html",
                "Priser | NordenMedia UF",
                "Pricing | NordenMedia UF",
-               "Tre paket med fast månadspris för hemsida, domän, mejl, synlighet och drift.",
-               "Three packages with a fixed monthly price for website, domain, email, visibility and hosting."),
+               "Tre paket med fast startkostnad och fast månadspris för hemsida, domän, mejl, synlighet och drift.",
+               "Three packages with a fixed start-up cost and a fixed monthly price for website, domain, email, visibility and hosting."),
     "om-oss": ("om-oss.html", "about.html",
                "Om oss | NordenMedia UF",
                "About us | NordenMedia UF",
@@ -68,9 +68,9 @@ NAV = ["webbtjanster", "livesandning", "priser", "om-oss"]
 NAV_LABEL = {"webbtjanster": "Webbtjänster", "livesandning": "Livesändning", "priser": "Priser", "om-oss": "Om oss"}
 
 
-def cta(title, text, primary, secondary_href, secondary_label):
+def cta(title, text, primary, secondary_href, secondary_label, label="Kontakta oss"):
     return f'''    <!-- CTA -->
-    <section class="cta-band-wrap" aria-label="Kontakta oss">
+    <section class="cta-band-wrap" aria-label="{label}">
       <div class="container">
         <div class="cta-band reveal">
           <div>
@@ -90,6 +90,11 @@ CTAS = {
     "{{CTA}}": cta("Lägg tiden på verksamheten. Vi tar hand om resten.", "Boka ett kort samtal så tar vi det därifrån. Det kostar ingenting att fråga.", "Boka ett samtal", "priser.html", "Se priser"),
     "{{CTA_ALT}}": cta("Osäkra på vilket paket som passar?", "Berätta om ert företag så hjälper vi er att välja. Det kostar ingenting att fråga.", "Boka ett samtal", "webbtjanster.html", "Se webbtjänster"),
     "{{CTA_LIVE}}": cta("Har ni ett evenemang på gång?", "Berätta om det så återkommer vi med ett förslag och ett fast pris.", "Boka ett samtal", "webbtjanster.html", "Se webbtjänster"),
+}
+CTAS_EN = {
+    "{{CTA}}": cta("Spend your time on your business. We take care of the rest.", "Book a short call and we will take it from there. It costs nothing to ask.", "Book a call", "priser.html", "See pricing", "Contact us"),
+    "{{CTA_ALT}}": cta("Not sure which package suits you?", "Tell us about your business and we will help you choose. It costs nothing to ask.", "Book a call", "webbtjanster.html", "See web services", "Contact us"),
+    "{{CTA_LIVE}}": cta("Have an event coming up?", "Tell us about it and we will come back with a proposal and a fixed price.", "Book a call", "webbtjanster.html", "See web services", "Contact us"),
 }
 
 
@@ -277,13 +282,15 @@ def chrome(key, lang, p, body):
 
 def render(key, lang):
     p = "" if lang == "sv" else "../"
-    src = os.path.join(ROOT, "src", "sv", f"{key}.html")
+    src = os.path.join(ROOT, "src", lang, f"{key}.html")
+    if not os.path.exists(src):
+        src = os.path.join(ROOT, "src", "sv", f"{key}.html")
     body = open(src, encoding="utf-8").read()
     extra = ""
     m = re.search(r"<!--HEAD-->(.*?)<!--/HEAD-->", body, re.S)
     if m:
         extra, body = m.group(1).strip("\n") + "\n", body.replace(m.group(0), "")
-    for k, v in CTAS.items():
+    for k, v in (CTAS if lang == "sv" else CTAS_EN).items():
         body = body.replace(k, v)
     html = head(key, lang, p).replace("{{HEAD_EXTRA}}", extra) + chrome(key, lang, p, body.rstrip())
     if key == "404":
@@ -332,13 +339,16 @@ def add_logo(html):
 
 
 def translate(key, html):
-    en_override = os.path.join(ROOT, "src", "en", f"{key}.html")
-    for sv, en in T:
-        html = html.replace(sv, en)
-    if os.path.exists(en_override):
-        # Use the hand-written English body instead of the translated one
-        body = open(en_override, encoding="utf-8").read().replace("{{p}}", "../")
-        html = re.sub(r"<main id=\"main\">.*?</main>", lambda _: f'<main id="main">\n{body.rstrip()}\n  </main>', html, flags=re.S)
+    if os.path.exists(os.path.join(ROOT, "src", "en", f"{key}.html")):
+        # The body is already English (src/en); translate only the shared header, footer and <head>
+        start, end = html.index('<main id="main">'), html.index("</main>")
+        outside = [html[:start], html[end:]]
+        for sv, en in T:
+            outside = [part.replace(sv, en) for part in outside]
+        html = outside[0] + html[start:end] + outside[1]
+    else:
+        for sv, en in T:
+            html = html.replace(sv, en)
     # Pages in /en/ are siblings: ../kontakt.html -> contact.html
     for k, (sv_file, en_file, *_rest) in PAGES.items():
         if en_file:

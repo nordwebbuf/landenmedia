@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Priser | NordenMedia UF</title>
-  <meta name="description" content="Tre paket med fast månadspris för hemsida, domän, mejl, synlighet och drift.">
+  <meta name="description" content="Tre paket med fast startkostnad och fast månadspris för hemsida, domän, mejl, synlighet och drift.">
   <meta name="theme-color" content="#F5F6F9" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#070B16" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
   <meta property="og:site_name" content="NordenMedia UF">
   <meta property="og:title" content="Priser | NordenMedia UF">
-  <meta property="og:description" content="Tre paket med fast månadspris för hemsida, domän, mejl, synlighet och drift.">
+  <meta property="og:description" content="Tre paket med fast startkostnad och fast månadspris för hemsida, domän, mejl, synlighet och drift.">
   <meta property="og:image" content="https://nordenmedia.se/assets/og-image.jpg">
   <meta property="og:url" content="https://nordenmedia.se/priser.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -26,8 +26,8 @@
   <link rel="preload" href="assets/fonts/geist-latin-1.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fonts.css?v=898962c2">
   <link rel="stylesheet" href="assets/icons/phosphor-light.css?v=2733eeeb">
-  <link rel="stylesheet" href="css/styles.css?v=6d07ca60">
-  <link rel="stylesheet" href="css/v3.css?v=650f0838">
+  <link rel="stylesheet" href="css/styles.css?v=65f20e7b">
+  <link rel="stylesheet" href="css/v3.css?v=552c646c">
   <script>
     (function () {
       var d = document.documentElement; d.classList.add('js');
@@ -103,7 +103,7 @@
     <section class="page-hero" id="top">
       <div class="container">
         <p class="eyebrow hero-in" style="--i:0">Priser</p>
-        <h1 class="display display-page hero-in" style="--i:1">Fast startpris. <strong>Sedan en fast månadsavgift.</strong></h1>
+        <h1 class="display display-page hero-in" style="--i:1">En fast startkostnad. <strong>Sedan en fast månadsavgift.</strong></h1>
         <p class="lead hero-in" style="--i:2">Ni betalar startkostnaden först när hemsidan är klar och ni är nöjda. Därefter en månadsavgift för drift, uppdateringar och support.</p>
       </div>
     </section>
@@ -111,25 +111,14 @@
     <!-- Paket -->
     <section class="section section-tight-top" id="paket" aria-label="Paket">
       <div class="container">
-        <div class="finder reveal" data-finder>
-          <div class="finder-head">
-            <h2 class="finder-title"><i class="ph-light ph-sparkle" aria-hidden="true"></i>Hitta rätt paket</h2>
-            <p>Svara på tre frågor så visar vi vilket paket som passar er.</p>
-          </div>
-          <div class="finder-qs">
-            <div class="finder-q"><p id="fq1">Behöver ni företagsmejl eller synas bättre på Google?</p><div class="yn" role="group" aria-labelledby="fq1" data-q="reach"><button type="button" aria-pressed="false" data-v="1">Ja</button><button type="button" aria-pressed="false" data-v="0">Nej</button></div></div>
-            <div class="finder-q"><p id="fq2">Vill ni ta emot bokningar eller ha inloggning för kunder?</p><div class="yn" role="group" aria-labelledby="fq2" data-q="book"><button type="button" aria-pressed="false" data-v="1">Ja</button><button type="button" aria-pressed="false" data-v="0">Nej</button></div></div>
-            <div class="finder-q"><p id="fq3">Vill ni automatisera påminnelser och utskick?</p><div class="yn" role="group" aria-labelledby="fq3" data-q="auto"><button type="button" aria-pressed="false" data-v="1">Ja</button><button type="button" aria-pressed="false" data-v="0">Nej</button></div></div>
-          </div>
-          <p class="finder-result" data-finder-result aria-live="polite" hidden><i class="ph-light ph-check-circle" aria-hidden="true"></i><span>Vi rekommenderar <b data-finder-plan>Start</b>. Paketet är markerat nedan.</span></p>
-        </div>
         <div class="plans">
           <article class="plan reveal" data-plan-key="start">
-            <span class="plan-match">Passar er</span>
             <h2 class="plan-name">Start</h2>
             <p class="plan-desc">För er som behöver en modern hemsida som syns.</p>
-            <p class="plan-start"><i class="ph-light ph-plus-circle" aria-hidden="true"></i>Fast startkostnad</p>
-            <p class="plan-price"><span class="plan-num">495</span> kr/mån</p>
+            <div class="plan-costs">
+              <p class="plan-cost"><span class="plan-cost-label">Startkostnad</span><span class="plan-cost-val"><span class="plan-num">4&nbsp;995</span> kr</span></p>
+              <p class="plan-cost plan-cost-month"><span class="plan-cost-label">Sedan per månad</span><span class="plan-cost-val"><span class="plan-num">495</span> kr/mån</span></p>
+            </div>
             <ul class="plan-list">
               <li><i class="ph-light ph-check" aria-hidden="true"></i>Hemsida med kontaktformulär</li>
               <li><i class="ph-light ph-check" aria-hidden="true"></i>Domän och DNS</li>
@@ -140,11 +129,12 @@
           </article>
           <article class="plan plan-featured reveal" style="--d:100ms" data-plan-key="foretag">
             <span class="plan-flag">Populärast</span>
-            <span class="plan-match">Passar er</span>
             <h2 class="plan-name">Företag</h2>
             <p class="plan-desc">För er som vill bli hittade och få fler förfrågningar.</p>
-            <p class="plan-start"><i class="ph-light ph-plus-circle" aria-hidden="true"></i>Fast startkostnad</p>
-            <p class="plan-price"><span class="plan-num">995</span> kr/mån</p>
+            <div class="plan-costs">
+              <p class="plan-cost"><span class="plan-cost-label">Startkostnad</span><span class="plan-cost-val"><span class="plan-num">7&nbsp;995</span> kr</span></p>
+              <p class="plan-cost plan-cost-month"><span class="plan-cost-label">Sedan per månad</span><span class="plan-cost-val"><span class="plan-num">995</span> kr/mån</span></p>
+            </div>
             <ul class="plan-list">
               <li><i class="ph-light ph-check" aria-hidden="true"></i>Allt i Start</li>
               <li><i class="ph-light ph-check" aria-hidden="true"></i>Företagsmejl med egen domän</li>
@@ -154,11 +144,12 @@
             <a href="kontakt.html?paket=F%C3%B6retag" class="btn btn-primary btn-block">Välj Företag</a>
           </article>
           <article class="plan reveal" style="--d:200ms" data-plan-key="helhet">
-            <span class="plan-match">Passar er</span>
             <h2 class="plan-name">Helhet</h2>
-            <p class="plan-desc">För er som vill automatisera och lämna allt digitalt till oss.</p>
-            <p class="plan-start"><i class="ph-light ph-plus-circle" aria-hidden="true"></i>Fast startkostnad</p>
-            <p class="plan-price"><span class="plan-num">1&nbsp;795</span> kr/mån</p>
+            <p class="plan-desc">För er som vill automatisera och lämna över allt digitalt till oss.</p>
+            <div class="plan-costs">
+              <p class="plan-cost"><span class="plan-cost-label">Startkostnad</span><span class="plan-cost-val"><span class="plan-num">12&nbsp;995</span> kr</span></p>
+              <p class="plan-cost plan-cost-month"><span class="plan-cost-label">Sedan per månad</span><span class="plan-cost-val"><span class="plan-num">1&nbsp;795</span> kr/mån</span></p>
+            </div>
             <ul class="plan-list">
               <li><i class="ph-light ph-check" aria-hidden="true"></i>Allt i Företag</li>
               <li><i class="ph-light ph-check" aria-hidden="true"></i>Bokning och inloggning</li>
@@ -170,17 +161,17 @@
         </div>
         <div class="guarantee guarantee-inline reveal">
           <div class="guarantee-copy">
-            <p class="guarantee-kicker"><i class="ph-light ph-seal-check" aria-hidden="true"></i>Nöjd-kund-garanti</p>
+            <p class="guarantee-kicker"><i class="ph-light ph-seal-check" aria-hidden="true"></i>Nöjd kund-garanti</p>
             <h2 class="guarantee-title">Ni betalar först när ni är nöjda.</h2>
             <p class="guarantee-text">Vi bygger klart och visar resultatet. Först när ni har godkänt det skickar vi fakturan. Ingen förskottsbetalning, ingen risk.</p>
           </div>
           <ol class="guarantee-steps">
             <li><span class="gs-dot"><i class="ph-light ph-hammer" aria-hidden="true"></i></span><b>Vi bygger klart</b><small>Till ett fast pris</small></li>
-            <li><span class="gs-dot"><i class="ph-light ph-eye" aria-hidden="true"></i></span><b>Ni granskar</b><small>Allt innan lansering</small></li>
+            <li><span class="gs-dot"><i class="ph-light ph-eye" aria-hidden="true"></i></span><b>Ni granskar</b><small>Allt före lanseringen</small></li>
             <li class="gs-pay"><span class="gs-dot"><i class="ph-light ph-check" aria-hidden="true"></i></span><b>Ni godkänner</b><small>Först då kommer fakturan</small></li>
           </ol>
         </div>
-        <p class="plans-note">Alla priser exkl. moms. Startkostnaden är ett fast pris som ni får efter första samtalet, och den faktureras först när ni har godkänt resultatet.</p>
+        <p class="plans-note">Alla priser exkl. moms. Startkostnaden betalas en gång och faktureras först när ni har godkänt den färdiga hemsidan. Månadsavgiften börjar när hemsidan har lanserats.</p>
       </div>
     </section>
 
@@ -207,7 +198,7 @@
               <tr><th scope="row">Bokning och inloggning</th><td><span class="dash" aria-label="Ingår inte">-</span></td><td><span class="dash" aria-label="Ingår inte">-</span></td><td><i class="ph-light ph-check" aria-label="Ingår"></i></td></tr>
               <tr><th scope="row">Kundregister och automatiska utskick</th><td><span class="dash" aria-label="Ingår inte">-</span></td><td><span class="dash" aria-label="Ingår inte">-</span></td><td><i class="ph-light ph-check" aria-label="Ingår"></i></td></tr>
               <tr><th scope="row">Prioriterad support</th><td><span class="dash" aria-label="Ingår inte">-</span></td><td><span class="dash" aria-label="Ingår inte">-</span></td><td><i class="ph-light ph-check" aria-label="Ingår"></i></td></tr>
-              <tr><th scope="row">Startkostnad</th><td>Fast pris</td><td>Fast pris</td><td>Fast pris</td></tr>
+              <tr class="row-price"><th scope="row">Startkostnad, en gång</th><td>4&nbsp;995 kr</td><td>7&nbsp;995 kr</td><td>12&nbsp;995 kr</td></tr>
               <tr class="row-price"><th scope="row">Pris per månad</th><td>495 kr</td><td>995 kr</td><td>1&nbsp;795 kr</td></tr>
             </tbody>
           </table>
@@ -292,6 +283,6 @@
   </div>
 
   <script src="js/main.js?v=d7667220" defer></script>
-  <script src="js/v3.js?v=c4ebb9ff" defer></script>
+  <script src="js/v3.js?v=b2bd8aa8" defer></script>
 </body>
 </html>

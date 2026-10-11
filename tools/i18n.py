@@ -269,7 +269,7 @@ T = [
     (">Synlighet</a>", ">Visibility</a>"),
     (">Automatisering</a>", ">Automation</a>"),
     (">Månadsrapport</a>", ">Monthly report</a>"),
-    ('<li><a href="integritetspolicy.html">Integritetspolicy</a></li>', '<li><a href="privacy.html">Privacy policy</a></li>'),
+    ('integritetspolicy.html">Integritetspolicy</a></li>', 'integritetspolicy.html">Privacy policy</a></li>'),
     ('<li><a href="en/" hreflang="en" lang="en">English</a></li>', '<li><a href="../" hreflang="sv" lang="sv">Svenska</a></li>'),
     ("Till toppen", "Back to top"),
     # field names sent to the form backend

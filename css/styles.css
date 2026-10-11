@@ -820,7 +820,6 @@ h3 {
 .live-media img { width: 100%; height: 100%; object-fit: cover; filter: var(--img-filter); transition: transform 1.2s var(--ease); }
 .live-media:hover img { transform: scale(1.03); }
 .live-badge { position: absolute; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgb(14 17 16 / .72); color: #fff; font-size: .8125rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-.live-dot { width: 8px; height: 8px; border-radius: 999px; background: #E5484D; }
 .live-copy .lead { margin-top: 20px; }
 .live-list { display: grid; gap: 20px; margin: 32px 0 36px; }
 .live-list li { display: flex; gap: 16px; }
@@ -1094,7 +1093,6 @@ h3 {
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track { animation: marquee 32s linear infinite; }
   .marquee:hover .marquee-track { animation-play-state: paused; }
-  .live-dot { animation: pulse 1.6s ease-in-out infinite; }
   .bento .cell { transition: transform .5s var(--ease), box-shadow .5s var(--ease), opacity .9s var(--ease); }
   .bento .cell.is-in:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
   .cell-media img, .cell-photo img { transition: transform 1.2s var(--ease); }
@@ -1104,7 +1102,6 @@ h3 {
   }
 }
 @keyframes marquee { to { transform: translateX(calc(-25% - 18px)); } }
-@keyframes pulse { 50% { opacity: .35; } }
 @keyframes parallax { to { transform: translateY(10%) scale(1.06); } }
 @keyframes rise { to { opacity: 1; transform: none; } }
 @keyframes settle { to { opacity: 1; transform: none; } }
