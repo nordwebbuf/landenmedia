@@ -564,3 +564,12 @@
 .plan-featured .plan-cost-month { border-color: rgb(255 255 255 / .22); }
 .plan-featured .plan-cost, .plan-featured .plan-costs .plan-num { color: var(--accent-block-ink); }
 .plan-featured .plan-cost-label { color: #B9CCFF; }
+
+/* =====================================================================
+   Spacing rhythm: one consistent gap between sections. Sections that share
+   a background sit closer, so the page doesn't get double gaps.
+   ===================================================================== */
+:root { --section: clamp(72px, 8vw, 120px); }
+.section:not(.section-band) + .section:not(.section-band),
+.section-band + .section-band { padding-top: 0; }
+.section-head { margin-bottom: clamp(36px, 4.5vw, 56px); }
