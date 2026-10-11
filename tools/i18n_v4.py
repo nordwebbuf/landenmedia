@@ -95,7 +95,7 @@ T4 = [
     ("Lägg tiden på verksamheten. Vi tar hand om resten.", "Spend your time on your business. We take care of the rest."),
     ("Boka ett kort samtal så tar vi det därifrån. Det kostar ingenting att fråga.", "Book a short call and we will take it from there. It costs nothing to ask."),
     # footer and meta
-    ("Webbyrå och livesändning. Ni driver verksamheten, vi sköter tekniken.", "Web agency and live streaming. You run the business, we handle the tech."),
+    ("Vi bygger och sköter hemsidor för företag och organisationer, och livesänder evenemang och sammanträden.", "We build and run websites for businesses and organisations, and live stream events and meetings."),
     ("NordenMedia UF är en webbyrå och livesändningsbyrå. Vi bygger och sköter hemsidor, domän, mejl, SEO och drift, och livesänder event och sammanträden. Ni driver verksamheten, vi sköter tekniken.",
      "NordenMedia UF is a web agency and live streaming agency. We build and manage websites, domains, email, SEO and hosting, and stream events and meetings live. You run your business, we handle the tech."),
     # web services page
