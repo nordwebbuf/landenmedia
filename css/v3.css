@@ -508,16 +508,8 @@
 @media (max-width: 640px) { .turns-note { align-items: flex-start; padding: 18px; } }
 
 /* =====================================================================
-   Home: what is included (with a price hint) and a short "who we are"
+   Home: a short "who we are"
    ===================================================================== */
-.offer { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
-.offer-intro .lead { margin-top: 16px; }
-.offer .offer-list { margin: 0; gap: 22px; }
-.offer-more { padding-left: 54px; }
-.price-hint { margin-top: 28px; padding: 22px 24px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); max-width: 420px; }
-.price-hint-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 8px; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: .9375rem; }
-.price-hint-row b { font-family: var(--font-display); font-weight: 500; font-size: 1.25rem; color: var(--ink); white-space: nowrap; }
-.price-hint-note { margin: 12px 0 14px; font-size: .875rem; color: var(--muted); }
 
 .about-short { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
 .about-short-copy .lead { margin: 16px 0 22px; }
@@ -527,6 +519,5 @@
 .about-short-logos .org-logo { height: 34px; width: auto; max-width: 170px; }
 
 @media (max-width: 960px) {
-  .offer, .about-short { grid-template-columns: 1fr; }
+  .about-short { grid-template-columns: 1fr; }
 }
-.offer-list .offer-more i { width: auto; height: auto; background: none; border-radius: 0; font-size: 1rem; color: inherit; }
