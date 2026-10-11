@@ -326,10 +326,10 @@ def add_logo(html):
                   rf'<svg class="\1" viewBox="{vb}"\2 focusable="false"><use href="#nm-logo"/></svg>', html)
     sprite = (
         '<svg class="nm-sprite" aria-hidden="true" focusable="false"><defs>'
-        # Matches the original logo: near-black navy with a blue glow from the lower right
-        '<radialGradient id="nm-g" cx="0.9" cy="1" r="1.05" gradientUnits="objectBoundingBox">'
-        '<stop offset="0" style="stop-color:var(--nm-0)"/><stop offset="0.21" style="stop-color:var(--nm-1)"/>'
-        '<stop offset="0.53" style="stop-color:var(--nm-2)"/><stop offset="1" style="stop-color:var(--nm-3)"/></radialGradient>'
+        # Matches the original logo: near-black on the left, deep blue towards the lower right
+        '<linearGradient id="nm-g" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">'
+        '<stop offset="0" style="stop-color:var(--nm-3)"/><stop offset="0.48" style="stop-color:var(--nm-2)"/>'
+        '<stop offset="0.66" style="stop-color:var(--nm-1)"/><stop offset="1" style="stop-color:var(--nm-0)"/></linearGradient>'
         '<linearGradient id="nm-g-light" x1="0" y1="0" x2="1" y2="1">'
         '<stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>'
         f'<symbol id="nm-logo" viewBox="{vb}"><path style="fill:var(--nm-icon-fill, url(#nm-g))" d="{LOGO["icon"]}"/>'
