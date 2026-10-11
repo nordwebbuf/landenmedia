@@ -580,3 +580,9 @@
 .section-band:has(+ .section:not(.section-band)) { padding-bottom: clamp(48px, 5vw, 72px); }
 .section-band + .section:not(.section-band),
 .section:not(.section-band) + .section-band { padding-top: clamp(48px, 5vw, 72px); }
+
+/* One quiet line under the before/after cards */
+.turns-note { display: flex; align-items: center; gap: 16px; margin-top: 16px; padding: 18px 24px; border-radius: var(--r); background: var(--accent-soft); color: var(--ink-2); }
+.turns-note b { color: var(--ink); font-weight: 600; }
+.turns-note-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: var(--on-accent); font-size: 1.2rem; }
+@media (max-width: 640px) { .turns-note { align-items: flex-start; padding: 18px; } }
