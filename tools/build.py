@@ -32,8 +32,8 @@ PAGES = {
               "NordenMedia UF bygger hemsidor som visar vilka ni är, syns på Google och ger fler kunder. Vi sköter domän, mejl, SEO och drift, och ni betalar först när ni är nöjda.",
               "NordenMedia UF builds websites that show who you are, get found on Google and win more customers. We handle domain, email, SEO and hosting, and you only pay when you are happy."),
     "webbtjanster": ("webbtjanster.html", "web-services.html",
-                     "Webbtjänster | NordenMedia UF",
-                     "Web services | NordenMedia UF",
+                     "Hemsidor | NordenMedia UF",
+                     "Websites | NordenMedia UF",
                      "Hemsidor, domän, företagsmejl, SEO, AI-svar, Google-företagsprofil, automatisering och drift. Vi sköter allt, ni slipper tekniken.",
                      "Websites, domains, business email, SEO, AI answers, Google Business Profile, automation and hosting. We handle it all, you skip the tech."),
     "livesandning": ("livesandning.html", "live-streaming.html",
@@ -65,7 +65,7 @@ PAGES = {
 }
 
 NAV = ["webbtjanster", "livesandning", "priser", "om-oss"]
-NAV_LABEL = {"webbtjanster": "Webbtjänster", "livesandning": "Livesändning", "priser": "Priser", "om-oss": "Om oss"}
+NAV_LABEL = {"webbtjanster": "Hemsidor", "livesandning": "Livesändning", "priser": "Priser", "om-oss": "Om oss"}
 
 
 def cta(title, text, primary, secondary_href, secondary_label, label="Kontakta oss"):
@@ -88,13 +88,13 @@ def cta(title, text, primary, secondary_href, secondary_label, label="Kontakta o
 
 CTAS = {
     "{{CTA}}": cta("Lägg tiden på verksamheten. Vi tar hand om resten.", "Boka ett kort samtal så tar vi det därifrån. Det kostar ingenting att fråga.", "Boka ett samtal", "priser.html", "Se priser"),
-    "{{CTA_ALT}}": cta("Osäkra på vilket paket som passar?", "Berätta om ert företag så hjälper vi er att välja. Det kostar ingenting att fråga.", "Boka ett samtal", "webbtjanster.html", "Se webbtjänster"),
-    "{{CTA_LIVE}}": cta("Har ni ett evenemang på gång?", "Berätta om det så återkommer vi med ett förslag och ett fast pris.", "Boka ett samtal", "webbtjanster.html", "Se webbtjänster"),
+    "{{CTA_ALT}}": cta("Osäkra på vilket paket som passar?", "Berätta om ert företag så hjälper vi er att välja. Det kostar ingenting att fråga.", "Boka ett samtal", "webbtjanster.html", "Se vad som ingår"),
+    "{{CTA_LIVE}}": cta("Har ni ett evenemang på gång?", "Berätta om det så återkommer vi med ett förslag och ett fast pris.", "Boka ett samtal", "webbtjanster.html", "Vi bygger även hemsidor"),
 }
 CTAS_EN = {
     "{{CTA}}": cta("Spend your time on your business. We take care of the rest.", "Book a short call and we will take it from there. It costs nothing to ask.", "Book a call", "priser.html", "See pricing", "Contact us"),
-    "{{CTA_ALT}}": cta("Not sure which package suits you?", "Tell us about your business and we will help you choose. It costs nothing to ask.", "Book a call", "webbtjanster.html", "See web services", "Contact us"),
-    "{{CTA_LIVE}}": cta("Have an event coming up?", "Tell us about it and we will come back with a proposal and a fixed price.", "Book a call", "webbtjanster.html", "See web services", "Contact us"),
+    "{{CTA_ALT}}": cta("Not sure which package suits you?", "Tell us about your business and we will help you choose. It costs nothing to ask.", "Book a call", "webbtjanster.html", "See what is included", "Contact us"),
+    "{{CTA_LIVE}}": cta("Have an event coming up?", "Tell us about it and we will come back with a proposal and a fixed price.", "Book a call", "webbtjanster.html", "We also build websites", "Contact us"),
 }
 
 
@@ -240,7 +240,7 @@ def chrome(key, lang, p, body):
           <div>
             <p class="footer-head">Tjänster</p>
             <ul>
-              <li><a href="{p}webbtjanster.html">Webbtjänster</a></li>
+              <li><a href="{p}webbtjanster.html">Hemsidor</a></li>
               <li><a href="{p}livesandning.html">Livesändning</a></li>
               <li><a href="{p}priser.html">Priser</a></li>
             </ul>

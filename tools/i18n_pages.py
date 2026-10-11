@@ -113,7 +113,8 @@ T2 = [
     ("Ni får ett förslag", "You get a proposal"),
     ("Med vad som ingår, vad det kostar och när det kan vara klart.", "With what is included, what it costs and when it can be ready."),
     # shared labels (keep last: short, generic)
-    ("Webbtjänster", "Web services"),
+    ("Hemsidor</a>", "Websites</a>"),
+    ("Webbtjänster", "Websites"),
     ("Livesändning", "Live streaming"),
     ("Om oss", "About us"),
     (">Kontakt<", ">Contact<"), (">Kontakt <i", ">Contact <i"),
