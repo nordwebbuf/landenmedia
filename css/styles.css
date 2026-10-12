@@ -1135,7 +1135,7 @@ h3 {
   :root { --header-h: 64px; }
   .nav, .header-cta { display: none; }
   .menu-toggle { display: inline-flex; margin-left: 0; }
-  .header-tools { margin-left: auto; }
+  .header-tools, .nav + .header-tools { margin-left: auto; }
 
   .hero-grid { grid-template-columns: 1fr; align-items: start; }
   .hero-media { aspect-ratio: 4 / 3; max-height: none; }
