@@ -67,7 +67,7 @@
       const hours = val('manual') * 46 + val('admin') * 12; // 46 working weeks a year
       tween(calc.querySelector('[data-res="hours"]'), hours, 400);
       tween(calc.querySelector('[data-res="days"]'), Math.round(hours / 8), 400);
-      tween(calc.querySelector('[data-res="vendors"]'), val('vendors'), 400);
+      tween(calc.querySelector('[data-res="invoices"]'), val('vendors') * 12, 400); // one invoice a month per supplier
     };
     calc.addEventListener('input', update);
     update();

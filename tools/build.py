@@ -27,41 +27,41 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # key: (sv file, en file, sv title, en title, sv description, en description)
 PAGES = {
     "index": ("index.html", "index.html",
-              "NordenMedia UF | Hemsidor som ger fler kunder",
-              "NordenMedia UF | Websites that win more customers",
-              "NordenMedia UF bygger hemsidor som visar vilka ni är, syns på Google och ger fler kunder. Vi sköter domän, mejl, SEO och drift, och ni betalar först när ni är nöjda.",
-              "NordenMedia UF builds websites that show who you are, get found on Google and win more customers. We handle domain, email, SEO and hosting, and you only pay when you are happy."),
+              "Norden Media UF | Hemsidor som ger fler kunder",
+              "Norden Media UF | Websites that win more customers",
+              "Norden Media UF bygger hemsidor som visar vilka ni är, syns på Google och ger fler kunder. Vi sköter domän, mejl, SEO och drift, och ni betalar först när ni är nöjda.",
+              "Norden Media UF builds websites that show who you are, get found on Google and win more customers. We handle domain, email, SEO and hosting, and you only pay when you are happy."),
     "webbtjanster": ("webbtjanster.html", "web-services.html",
-                     "Hemsidor | NordenMedia UF",
-                     "Websites | NordenMedia UF",
+                     "Hemsidor | Norden Media UF",
+                     "Websites | Norden Media UF",
                      "Hemsidor, domän, företagsmejl, SEO, AI-svar, Google-företagsprofil, automatisering och drift. Vi sköter allt, ni slipper tekniken.",
                      "Websites, domains, business email, SEO, AI answers, Google Business Profile, automation and hosting. We handle it all, you skip the tech."),
     "livesandning": ("livesandning.html", "live-streaming.html",
-                     "Livesändning | NordenMedia UF",
-                     "Live streaming | NordenMedia UF",
+                     "Livesändning | Norden Media UF",
+                     "Live streaming | Norden Media UF",
                      "Livesändning av event och sammanträden, från teknik på plats till färdig sändning. Flera kameror, grafik, sändning och inspelning.",
                      "Live streaming of events and meetings, from on-site equipment to finished broadcast. Multiple cameras, graphics, streaming and recording."),
     "priser": ("priser.html", "pricing.html",
-               "Priser | NordenMedia UF",
-               "Pricing | NordenMedia UF",
+               "Priser | Norden Media UF",
+               "Pricing | Norden Media UF",
                "Tre paket med fast startkostnad och fast månadspris för hemsida, domän, mejl, synlighet och drift.",
                "Three packages with a fixed start-up cost and a fixed monthly price for website, domain, email, visibility and hosting."),
     "om-oss": ("om-oss.html", "about.html",
-               "Om oss | NordenMedia UF",
-               "About us | NordenMedia UF",
+               "Om oss | Norden Media UF",
+               "About us | Norden Media UF",
                "Människorna bakom NordenMedia, våra samarbetspartners och kunder.",
                "The people behind NordenMedia, our partners and clients."),
     "kontakt": ("kontakt.html", "contact.html",
-                "Kontakt | NordenMedia UF",
-                "Contact | NordenMedia UF",
+                "Kontakt | Norden Media UF",
+                "Contact | Norden Media UF",
                 "Boka ett samtal med NordenMedia. Berätta om ert företag så hör vi av oss.",
                 "Book a call with NordenMedia. Tell us about your business and we will be in touch."),
     "integritetspolicy": ("integritetspolicy.html", "privacy.html",
-                          "Integritetspolicy | NordenMedia UF",
-                          "Privacy policy | NordenMedia UF",
+                          "Integritetspolicy | Norden Media UF",
+                          "Privacy policy | Norden Media UF",
                           "Så hanterar NordenMedia dina personuppgifter.",
                           "How NordenMedia handles your personal data."),
-    "404": ("404.html", None, "Sidan hittades inte | NordenMedia UF", None, "Sidan finns inte.", None),
+    "404": ("404.html", None, "Sidan hittades inte | Norden Media UF", None, "Sidan finns inte.", None),
 }
 
 NAV = ["webbtjanster", "livesandning", "priser", "om-oss"]
@@ -121,7 +121,7 @@ def head(key, lang, p):
   <meta name="theme-color" content="#070B16" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{"sv_SE" if lang == "sv" else "en_GB"}">
-  <meta property="og:site_name" content="NordenMedia UF">
+  <meta property="og:site_name" content="Norden Media UF">
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:image" content="{SITE}/assets/og-image.jpg">
@@ -147,7 +147,7 @@ def head(key, lang, p):
   {{
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "NordenMedia UF",
+    "name": "Norden Media UF",
     "url": "{SITE}/",
     "logo": "{SITE}/assets/nordenmedia.svg",
     "image": "{SITE}/assets/og-image.jpg",
@@ -264,7 +264,7 @@ def chrome(key, lang, p, body):
       </div>
       <span class="logo logo-xl" role="img" aria-label="NordenMedia"></span>
       <div class="footer-bottom">
-        <p>© <span data-year>2026</span> NordenMedia UF</p>
+        <p>© <span data-year>2026</span> Norden Media UF</p>
         <ul class="footer-legal">
           {foot_lang}
           <li><a href="#top" class="to-top">Till toppen <i class="ph-light ph-arrow-up" aria-hidden="true"></i></a></li>
@@ -321,20 +321,14 @@ def bust_cache(html):
 
 def add_logo(html):
     """Embed the NordenMedia logo once per page and reference it wherever <span class="logo..."> is used."""
-    vb = f'0 0 {LOGO["w"]} {LOGO["h"]}'
+    symbol = open(os.path.join(ROOT, "tools", "logo_symbol.svg"), encoding="utf-8").read()
+    # The symbol's own viewBox crops the artwork; the outer <svg> just needs the same size from 0 0
+    w, h = re.search(r'viewBox="[-\d.]+ [-\d.]+ ([\d.]+) ([\d.]+)"', symbol).groups()
+    vb = f"0 0 {w} {h}"
     html = re.sub(r'<span class="(logo[^"]*)"([^>]*)></span>',
                   rf'<svg class="\1" viewBox="{vb}"\2 focusable="false"><use href="#nm-logo"/></svg>', html)
-    sprite = (
-        '<svg class="nm-sprite" aria-hidden="true" focusable="false"><defs>'
-        # Matches the original logo: near-black on the left, deep blue towards the lower right
-        '<linearGradient id="nm-g" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">'
-        '<stop offset="0" style="stop-color:var(--nm-3)"/><stop offset="0.48" style="stop-color:var(--nm-2)"/>'
-        '<stop offset="0.66" style="stop-color:var(--nm-1)"/><stop offset="1" style="stop-color:var(--nm-0)"/></linearGradient>'
-        '<linearGradient id="nm-g-light" x1="0" y1="0" x2="1" y2="1">'
-        '<stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>'
-        f'<symbol id="nm-logo" viewBox="{vb}"><path style="fill:var(--nm-icon-fill, url(#nm-g))" d="{LOGO["icon"]}"/>'
-        f'<path fill="currentColor" d="{LOGO["word"]}"/></symbol></defs></svg>'
-    )
+    # The icon is a raster image: a navy version and a white one, toggled with --nm-icon-color / --nm-icon-white
+    sprite = f'<svg class="nm-sprite" aria-hidden="true" focusable="false"><defs>{symbol}</defs></svg>'
     return re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n  " + sprite, html, count=1)
 
 

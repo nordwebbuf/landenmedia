@@ -2,8 +2,8 @@
 so whole sentences are translated before the shorter generic rules run."""
 
 T4 = [
-    ("Jag godkänner att NordenMedia UF sparar mina uppgifter för att kunna svara på förfrågan. Läs vår <a href=",
-     "I agree that NordenMedia UF may store my details in order to reply to my request. Read our <a href="),
+    ("Jag godkänner att Norden Media UF sparar mina uppgifter för att kunna svara på förfrågan. Läs vår <a href=",
+     "I agree that Norden Media UF may store my details in order to reply to my request. Read our <a href="),
     # hero
     ("Webbyrå och livesändning</p>", "Web agency and live streaming</p>"),
     ("Ni driver verksamheten. <strong>Vi sköter webben.</strong>", "You run the business. <strong>We handle the web.</strong>"),
@@ -47,7 +47,7 @@ T4 = [
     ("Luta er tillbaka. <strong>Vi tar det härifrån.</strong>", "Sit back. <strong>We will take it from here.</strong>"),
     ("Tryck på knappen och se vad som försvinner från ert bord när vi tar över.", "Press the button and see what disappears from your desk when we take over."),
     ('data-shift-btn="before">Utan oss<', 'data-shift-btn="before">Without us<'),
-    ('data-shift-btn="after">Med NordenMedia UF<', 'data-shift-btn="after">With NordenMedia UF<'),
+    ('data-shift-btn="after">Med Norden Media UF<', 'data-shift-btn="after">With Norden Media UF<'),
     ("Er tekniska arbetsbörda", "Your tech workload"),
     ('data-before="Hög" data-after="Nästan ingen">Hög<', 'data-before="High" data-after="Almost none">High<'),
     ("</i>Ert bord</p>", "</i>Your desk</p>"),
@@ -96,8 +96,8 @@ T4 = [
     ("Boka ett kort samtal så tar vi det därifrån. Det kostar ingenting att fråga.", "Book a short call and we will take it from there. It costs nothing to ask."),
     # footer and meta
     ("Vi bygger och sköter hemsidor för företag och organisationer, och livesänder evenemang och sammanträden.", "We build and run websites for businesses and organisations, and live stream events and meetings."),
-    ("NordenMedia UF är en webbyrå och livesändningsbyrå. Vi bygger och sköter hemsidor, domän, mejl, SEO och drift, och livesänder event och sammanträden. Ni driver verksamheten, vi sköter tekniken.",
-     "NordenMedia UF is a web agency and live streaming agency. We build and manage websites, domains, email, SEO and hosting, and stream events and meetings live. You run your business, we handle the tech."),
+    ("Norden Media UF är en webbyrå och livesändningsbyrå. Vi bygger och sköter hemsidor, domän, mejl, SEO och drift, och livesänder event och sammanträden. Ni driver verksamheten, vi sköter tekniken.",
+     "Norden Media UF is a web agency and live streaming agency. We build and manage websites, domains, email, SEO and hosting, and stream events and meetings live. You run your business, we handle the tech."),
     # web services page
     ("Hemsida och webb. <strong>Helt utan krångel.</strong>", "Websites and web. <strong>Completely hassle-free.</strong>"),
     ("Vi bygger, driftar och uppdaterar allt. Ni får en hemsida som syns, fungerar och tar emot kunder, utan att behöva lära er tekniken.",
@@ -108,8 +108,8 @@ T4 = [
      "From on-site equipment to finished broadcast. You run the programme, we handle cameras, sound, graphics and streaming so everyone can join, wherever they are."),
     ("</i>Sammanträden och årsmöten</li>", "</i>Meetings and AGMs</li>"),
     # about page
-    ("NordenMedia UF är en webbyrå och livesändningsbyrå som drivs som UF-företag i samarbete med Ung Företagsamhet och Björknäsgymnasiet. Vi tar hand om tekniken så att våra kunder kan fokusera på sin verksamhet.",
-     "NordenMedia UF is a web agency and live streaming agency, run as a student company in partnership with Ung Företagsamhet and Björknäsgymnasiet. We take care of the tech so our clients can focus on their business."),
+    ("Norden Media UF är en webbyrå och livesändningsbyrå som drivs som UF-företag i samarbete med Ung Företagsamhet och Björknäsgymnasiet. Vi tar hand om tekniken så att våra kunder kan fokusera på sin verksamhet.",
+     "Norden Media UF is a web agency and live streaming agency, run as a student company in partnership with Ung Företagsamhet and Björknäsgymnasiet. We take care of the tech so our clients can focus on their business."),
     ("<h3>Inget krångel</h3><p>Vi tar ansvar för tekniken, så att ni slipper oroa er för den.</p>", "<h3>No hassle</h3><p>We take responsibility for the tech, so you never have to worry about it.</p>"),
     ("<h3>Vanlig svenska</h3><p>Vi förklarar på svenska, inte på tekniska.</p>", "<h3>Plain language</h3><p>We explain things in plain language, not tech-speak.</p>"),
 ]
